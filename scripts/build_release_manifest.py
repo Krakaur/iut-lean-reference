@@ -22,10 +22,13 @@ def sha256(path: Path) -> str:
 
 
 files = sorted(
-    path for path in ROOT.rglob("*")
-    if path.is_file()
-    and path != OUTPUT
-    and not any(part in IGNORED_DIRS for part in path.relative_to(ROOT).parts)
+    (
+        path for path in ROOT.rglob("*")
+        if path.is_file()
+        and path != OUTPUT
+        and not any(part in IGNORED_DIRS for part in path.relative_to(ROOT).parts)
+    ),
+    key=lambda path: path.relative_to(ROOT).as_posix(),
 )
 document = {
     "schema_version": "1.0.0",
