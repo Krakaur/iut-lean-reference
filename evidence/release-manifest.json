@@ -15,8 +15,8 @@
     },
     {
       "path": ".github/workflows/lean.yml",
-      "bytes": 403,
-      "sha256": "6f04c756749ce0e1a9fdb0da38d38ac3d607058b877f7c687ff101e21d84c49d"
+      "bytes": 503,
+      "sha256": "7441f1ef39ac92dec396de132abf070b318a4750df8bd9b8786c7d19f5d52e93"
     },
     {
       "path": ".gitignore",

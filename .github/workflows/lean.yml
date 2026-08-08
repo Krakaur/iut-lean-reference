@@ -18,4 +18,5 @@ jobs:
         with:
           build: true
           test: false
-          leanchecker: true
+      - name: Replay project declarations with the bundled Lean kernel checker
+        run: lake env leanchecker IUT1 IUT1Audit
