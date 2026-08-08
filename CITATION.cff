@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this reference library, please cite it using these metadata."
+title: "IUT Lean Reference Library"
+abstract: >-
+  An English, source-audited Lean 4 reference for a bounded finite-symmetry
+  layer of Inter-universal Teichmuller Theory I, with theorem-by-theorem
+  exposition, adversarial examples, an algebraic poly-morphism prototype,
+  machine-readable provenance and independent verification gates.
+type: software
+authors:
+  - family-names: "Krakaur Floranes"
+    given-names: "Dirk Hans"
+    orcid: "https://orcid.org/0000-0002-6465-034X"
+version: 0.1.0-rc1
+date-released: 2026-08-07
+repository-code: "https://github.com/Krakaur/iut-lean-reference"
+url: "https://github.com/Krakaur/iut-lean-reference"
+license: Apache-2.0
+keywords:
+  - Lean 4
+  - Mathlib
+  - inter-universal Teichmuller theory
+  - anabelian geometry
+  - formal verification
+  - poly-morphisms

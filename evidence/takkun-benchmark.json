@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "benchmark_id": "TAKKUN-COMPLETE-STATIC-9D56C46",
+  "source_id": "SRC-TAKKUN-IUT-LEAN-9D56C46",
+  "localizer": "complete versioned tree at git commit 9d56c46db270896876a83a484f857a7186a2a8bf",
+  "git_tree": "4751d8ce2d96dfd40b1d1cb574487fdbae8727d5",
+  "epistemic_status": "COMPLETE_STATIC_INVENTORY_WITH_PARTIAL_KERNEL_AND_SEMANTIC_AUDITS",
+  "coverage": {
+    "versioned_files": 74,
+    "versioned_files_inventoried": 74,
+    "physical_lines": 11541,
+    "declaration_heads": 737,
+    "public_explicit_declaration_candidates": 717,
+    "warnings": 108
+  },
+  "file_type_partition": {
+    "lean_files": 68,
+    "non_lean_documentation_and_infrastructure_files": 6,
+    "sum": 74
+  },
+  "architectural_partition": {
+    "iut_i": 17,
+    "iut_ii_to_iv": 34,
+    "generic_foundations": 16,
+    "documentation_and_infrastructure": 7,
+    "sum": 74,
+    "overlap_note": "The architectural documentation/infrastructure bucket includes root IutLean.lean, which is also one of the 68 Lean files in the orthogonal file-type partition."
+  },
+  "kernel_evidence": {
+    "status": "PARTIAL_FAIL_CLOSED",
+    "axiom_probes": 12,
+    "public_explicit_declaration_candidates": 717,
+    "transfer_to_unprobed_declarations": false
+  },
+  "semantic_evidence": {
+    "status": "PARTIAL_FAIL_CLOSED",
+    "flags": 13,
+    "high": 9,
+    "medium": 4,
+    "interpretation": "Recorded findings concern selected interfaces; they do not license a defect claim for every unreviewed declaration."
+  },
+  "static_escape_scan": {
+    "active_escapes_detected": 0,
+    "active_token_counts": {
+      "sorry": 0,
+      "admit": 0,
+      "axiom_declaration": 0,
+      "opaque": 0,
+      "unsafe": 0,
+      "native_decide": 0,
+      "Classical.choice": 0
+    },
+    "transfer_to_kernel_or_fidelity_pass": false
+  },
+  "evidence_basis": [
+    {"path":"support_runs/IUT1_SEQUENTIAL_FORMALIZATION_20260807/TAKKUN_COMPLETE_STATIC_BENCHMARK.md","sha256":"c0328cdd1c0bf4867d673c31b5fe80aaf205a741fcde876836ff18c0b8ebe9a2","redistributed":false},
+    {"path":"support_runs/IUT1_SEQUENTIAL_FORMALIZATION_20260807/TAKKUN_COMPLETE_STATIC_BENCHMARK.json","sha256":"21c74d3a59931c30684df9d292179a180222a1ad06614e5be023e26af53441d6","redistributed":false},
+    {"path":"support_runs/TAKKUN_FULL_AXIOM_AUDIT_20260729/FINAL_REPORT.md","sha256":"ceb46d8142d50b48eb74b10a0ff4860eed54dd851da0ee99236703f04dcc3c7a","redistributed":false},
+    {"path":"support_runs/TAKKUN_FULL_AXIOM_AUDIT_20260729/VALIDATION.json","sha256":"338fe9f6d03bf7142237ec9297b072cce48a35c36b3236b1c9d4a0d4654cbc0b","redistributed":false},
+    {"path":"support_runs/TAKKUN_FULL_AXIOM_AUDIT_20260729/RESULT_MANIFEST.json","sha256":"955f9dc1feed569258e7eeb05dde6893cfc5c768cab4bc2cca3d91bee7687496","redistributed":false},
+    {"path":"support_runs/TAKKUN_FULL_AXIOM_AUDIT_20260729/STATIC_SCAN.json","sha256":"e844473961aecb022885593db51f6384cab0f0cc81bfde3588428067d0a1e555","redistributed":false},
+    {"path":"support_runs/TAKKUN_FULL_AXIOM_AUDIT_20260729/MODULE_INVENTORY.jsonl","sha256":"12700b504823cd460b048efb78792ce8763f2525a8b4a3b8099f859316d83986","redistributed":false},
+    {"path":"support_runs/TAKKUN_FULL_AXIOM_AUDIT_20260729/DECLARATION_INVENTORY.jsonl","sha256":"632cd9c7342ee776842e968b0fc61a82175b147a5d825c7177d5b87aebf3731d","redistributed":false},
+    {"path":"support_runs/TAKKUN_FULL_AXIOM_AUDIT_20260729/AXIOM_RESULTS.jsonl","sha256":"f7cacba3d5234d5b4ce61ceac791c610f8b81432fbe7df85db80d1ea125b713e","redistributed":false},
+    {"path":"support_runs/TAKKUN_FULL_AXIOM_AUDIT_20260729/WARNING_LEDGER.jsonl","sha256":"d87dcd7e72b70d5c22fafaa1b30e8a053df4928f7b611ba7379b97fe2cc9ba2b","redistributed":false},
+    {"path":"support_runs/TAKKUN_FULL_AXIOM_AUDIT_20260729/SEMANTIC_FLAGS.jsonl","sha256":"f4d9db91c41267044341977eb01dd0d1735d3a246da5bec6c2016e233d75b1cd","redistributed":false},
+    {"path":"support_runs/RESUME_WAVE6_20260730/176_takkun_static_semantic_next_slice/SCOPE_AND_METHOD.md","sha256":"05cf074b53aeeb24753132860a7db6e86a852360cbe55cc28bc678f8bd8f5c91","redistributed":false},
+    {"path":"support_runs/RESUME_WAVE7_20260806/197_takkun_upstream_delta_20260806/UPSTREAM_DELTA_REPORT.md","sha256":"9c0cc5f933d63272705977e0d3eb0cc206b27e4f4e50d2547be2a4e8f8556442","redistributed":false},
+    {"path":"support_runs/RESUME_WAVE7_20260806/197_takkun_upstream_delta_20260806/IDENTITY_ATTESTATION.json","sha256":"432773d25566920faecf31cf1691abf6c7ce795243376d5699d7cfd9823236ec","redistributed":false}
+  ],
+  "scope_aligned_comparison": {
+    "shared_microdomain": "finite sign and signed-affine coordinate models",
+    "this_project_advantage": "claim-level provenance, separate gates, visible conventions, rival-discriminating tests, pedagogical and machine-readable layers",
+    "takkun_advantage": "substantially broader module and IUT-paper coverage",
+    "global_superiority_claim_authorized": false
+  },
+  "discriminating_test": "Recompute both file and declaration denominators at the pinned commit; do not infer semantic or kernel coverage from repository size or an escape scan."
+}

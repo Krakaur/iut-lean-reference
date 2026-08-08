@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/iut-lean-reference/polyaction-schema.json",
+  "title": "Per-target poly-action checkpoint",
+  "type": "object",
+  "required": [
+    "target_id", "role", "source_id", "localizers", "epistemic_status",
+    "example", "lean_declarations", "discriminant", "scientific_boundary",
+    "target_gate_unchanged"
+  ],
+  "properties": {
+    "target_id": {"pattern": "^T(0[1-9]|1[01])$"},
+    "role": {
+      "enum": [
+        "PREREQUISITE_ONLY", "LABEL_MODEL_ONLY",
+        "ALGEBRAIC_INTERFACE_PROTOTYPE", "ORDINARY_ACTION_PREREQUISITE",
+        "SINGLETON_POLYMORPHISM_SPECIAL_CASE", "CARDINALITY_ONLY",
+        "ALGEBRAIC_POLYACTION_PROTOTYPE_INPUT", "TRANSPORT_CHECKPOINT_ONLY",
+        "REGRESSION_ONLY"
+      ]
+    },
+    "source_id": {"type": "string", "minLength": 1},
+    "localizers": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "epistemic_status": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "example": {"type": "string", "minLength": 1},
+    "lean_declarations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+    "discriminant": {"type": "string", "minLength": 1},
+    "scientific_boundary": {"type": "string", "minLength": 1},
+    "target_gate_unchanged": {"const": true}
+  },
+  "additionalProperties": false
+}

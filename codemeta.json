@@ -1,0 +1,40 @@
+{
+  "@context": "https://w3id.org/codemeta/3.1",
+  "@type": "SoftwareSourceCode",
+  "name": "IUT Lean Reference Library",
+  "description": "An English, source-audited Lean 4 reference for a bounded finite-symmetry layer of Inter-universal Teichmuller Theory I, including adversarial examples and an algebraic poly-morphism prototype.",
+  "version": "0.1.0-rc1",
+  "datePublished": "2026-08-07",
+  "codeRepository": "https://github.com/Krakaur/iut-lean-reference",
+  "url": "https://github.com/Krakaur/iut-lean-reference",
+  "license": "https://spdx.org/licenses/Apache-2.0",
+  "programmingLanguage": "Lean 4",
+  "runtimePlatform": "Lean 4.28.0 and Mathlib",
+  "applicationCategory": "Formalized mathematics",
+  "keywords": [
+    "Lean 4",
+    "Mathlib",
+    "formalized mathematics",
+    "anabelian geometry",
+    "Inter-universal Teichmuller theory",
+    "finite symmetry",
+    "poly-morphism"
+  ],
+  "author": {
+    "@id": "https://orcid.org/0000-0002-6465-034X",
+    "@type": "Person",
+    "givenName": "Dirk Hans",
+    "familyName": "Krakaur Floranes",
+    "name": "Dirk Hans Krakaur Floranes"
+  },
+  "copyrightHolder": {
+    "@id": "https://orcid.org/0000-0002-6465-034X",
+    "@type": "Person",
+    "name": "Dirk Hans Krakaur Floranes"
+  },
+  "maintainer": {
+    "@id": "https://orcid.org/0000-0002-6465-034X",
+    "@type": "Person",
+    "name": "Dirk Hans Krakaur Floranes"
+  }
+}

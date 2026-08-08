@@ -1,0 +1,22 @@
+name: Lean verification
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate public evidence package
+        run: python scripts/validate_release.py
+      - uses: leanprover/lean-action@v1
+        with:
+          build: true
+          test: false
+          nanoda: true
+          nanoda-allow-sorry: false

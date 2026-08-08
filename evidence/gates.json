@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0.0",
+  "release": "0.1.0-rc1",
+  "environment": {
+    "lean": "4.28.0",
+    "lean_toolchain": "leanprover/lean4:v4.28.0",
+    "mathlib_commit": "8f9d9cff6bd728b17a24e163c9402775d9e6a365"
+  },
+  "campaigns": [
+    {"targets":["T01","T02","T03","T04"],"semantic":"PASS","kernel":"PASS","fidelity":"PASS","cold_replication":"PASS","promotion":false},
+    {"targets":["T05a","T05b","T05c","T05d"],"semantic":"PASS","kernel":"PASS","fidelity":"PASS","cold_replication":"PASS","promotion":false,"historical_note":"Producer command documentation omitted the effective LEAN_PATH; independent corrected replication passed."},
+    {"targets":["T06","T07","T08"],"semantic":"PASS","kernel":"PASS","fidelity":"PASS","cold_replication":"PASS","P1":0,"P2":0,"P3":0,"promotion":false},
+    {"targets":["T09","T10","T11"],"semantic":"PASS","kernel":"PASS","fidelity":"PASS","cold_replication":"PASS","P1":0,"P2":0,"P3":0,"promotion":false,"contract_sha256":"20baf1220a007e5b2724b7d7236bc8c818532cf00448ea3517aec70f05b1a892","review_sha256":"3e6466a06afb9183cf371770746d8df497a8a43032cab2ebad03d318eec73f29"},
+    {"targets":["APP01"],"semantic":"PASS","kernel":"PASS","fidelity":"PASS","cold_replication":"PASS","utility":"PASS_PACKAGE_REVIEW","P1":0,"P2":0,"P3":0,"promotion":false,"contract_sha256":"6b18ac863e7a00ac1633edd0dcec84df517bd81466abbeb5a7c5d9a4d11e847f","review_sha256":"42e72bd245afb366afe036ec049cce193fedc32e874d2988eef11aaee4e23f0e"},
+    {"targets":["PA01","PA02","PA03","PA04","PA05","PA06"],"source_anchors":"PASS_INDEPENDENT_SOURCE_ANCHORS_R3","semantic":"PASS","kernel":"PASS","fidelity":"PASS","cold_replication":"PASS","utility":"PASS_PACKAGE_REVIEW","geometric":"NO_GO_GEOMETRIC_CURRENT_T01_T11","P1":0,"P2":0,"P3":0,"promotion":false,"contract_sha256":"749ec64476a228738b04c5585a7732fb81db2d7fc6bf2a0f52c0cbdcf08799a5","semantic_review_sha256":"2b9c353049b8d2aac5efe9f826811f6c2b923a15defa45a51a291a3ad5215c40","source_anchor_review_sha256":"183688c64d863a7afbf93d75f5780c456c23b8c9753b2c6fff15398d7e6bd237","final_review_sha256":"df4a6d6f768ef6b837f796c598cb9b0153ad2debe26a4a41a86e3b063d819e23"}
+  ],
+  "whole_package": {
+    "status": "PASS_FROZEN_LOCAL_CANDIDATE",
+    "utility": "PASS",
+    "scope_aligned_quality": "PASS_SCOPE_ALIGNED",
+    "reviewed_manifest_sha256": "a8e3a341b240d23c5f03b13f0b238785e9351139ab7fe53acf2e6b92700ad155",
+    "reviewed_validator_sha256": "40f136b0d8f925fa63e9722f6f7abeeb221a7ab670bc681ca431d28be2cedc7e",
+    "claims": 11,
+    "public_theorem_instances": 68,
+    "public_files": 70,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0,
+    "initial_revise_review_sha256": "9986213c72a6bda3a5d54a769330345e8e41f8e7cd5cd8c14449d076290088d0",
+    "repair_delta_review_sha256": "6682b4a65e613a8b4593d813b328fc1c0a87a2ca92b5c602a4e280e63e9e90ec",
+    "geometric": "NO_GO_GEOMETRIC_CURRENT_T01_T11",
+    "promotion": false,
+    "github_publication": "AUTHORIZED_FOR_PUBLICATION"
+  },
+  "publication_metadata": {
+    "status": "PASS_INDEPENDENT_REVIEW",
+    "authorized": true,
+    "repository": "https://github.com/Krakaur/iut-lean-reference",
+    "software_license": "Apache-2.0",
+    "documentation_data_license": "CC-BY-4.0",
+    "author": "Dirk Hans Krakaur Floranes",
+    "orcid": "https://orcid.org/0000-0002-6465-034X",
+    "gate_transfer_allowed": false,
+    "mathematical_scope_unchanged": true,
+    "reviewed_manifest_sha256": "b38c7dd958cc04c13fa8ed1edd6b9a7f730dec5a075717b07bdde0c397b615c9",
+    "initial_review_sha256": "b385e49479ae2c6313cd7c6cea5512543ab011656c7eb6fa6e0f9c36f2572142",
+    "delta_review_sha256": "12e333c0edd4a473b7dba20940e1ebef6df6b5b7cdbdc10125dda071e00d7fcd",
+    "P1": 0,
+    "P2": 0,
+    "P3": 0
+  },
+  "t06_t08_cold_outputs": [
+    {"module":"IUT1.SymmetryCore","bytes":133920,"sha256":"1bd024025040e283ab998239626201994780359b43702039adc55ed929c23d6e"},
+    {"module":"IUT1.SignOrbitBridge","bytes":589848,"sha256":"9d820b4d054fb589e7bd0cc74e561fb8eb704438c62409e3c59d071d81565799"},
+    {"module":"IUT1.SignedAffineCore","bytes":509320,"sha256":"9d30798ad82cd3ae6184d764b6c9ca431fff0f6f81760f7a4317a5c7cc31ad80"},
+    {"module":"IUT1.SignedAffineCoreAxiomAudit","bytes":42056,"sha256":"2213c594d06fedd7d45d02450fe41a9c547d820b8eea61d2ace5afcd1078ce6b"}
+  ],
+  "t06_t08_axioms": {
+    "IUT1.instGroupSignedAffine":["propext","Quot.sound"],
+    "IUT1.T06_C06_mul_formula":["propext","Quot.sound"],
+    "IUT1.T06_example_l5_semidirect":["propext","Quot.sound"],
+    "IUT1.T07_C06_act_mul":["propext","Quot.sound"],
+    "IUT1.T07_example_l5_action_order":["propext","Quot.sound"],
+    "IUT1.T08_C06_card_signedAffine":["propext","Classical.choice","Quot.sound"],
+    "IUT1.T08_example_l5_card":["propext","Classical.choice","Quot.sound"],
+    "IUT1.T08_audit_l5_ne_signOrbit_card":[]
+  },
+  "t09_t11_axioms": {
+    "IUT1.translationSubgroup":["propext","Quot.sound"],
+    "IUT1.T09_C06_translation_mem_iff":["propext","Quot.sound"],
+    "IUT1.T09_C06_translation_index":["propext","Classical.choice","Quot.sound"],
+    "IUT1.instNormalTranslationSubgroup":["propext","Classical.choice","Quot.sound"],
+    "IUT1.T09_example_l5_reflection_toggle":["propext","Quot.sound"],
+    "IUT1.signedAffineDihedralEquiv":["propext","Quot.sound"],
+    "IUT1.dihedralAct":["propext","Quot.sound"],
+    "IUT1.T10_C06_dihedral_action_compatible":["propext","Quot.sound"],
+    "IUT1.T10_example_l5_action_discriminant":["propext","Quot.sound"],
+    "IUT1.T11_l5_cardinality_vector":["propext","Classical.choice","Quot.sound"],
+    "IUT1.T11_l7_cardinality_vector":["propext","Classical.choice","Quot.sound"]
+  },
+  "app01_axioms": {
+    "IUT1.ConventionCandidate":[],
+    "IUT1.conventionCheck":["propext","Classical.choice","Quot.sound"],
+    "IUT1.APP01_C01_check_spec":["propext","Classical.choice","Quot.sound"],
+    "IUT1.canonicalConventionCandidate":["propext","Quot.sound"],
+    "IUT1.unsignedReflectionCandidate":[],
+    "IUT1.APP01_C02_canonical_passes_l5":["propext","Classical.choice","Quot.sound"],
+    "IUT1.APP01_C03_unsigned_reflection_fails_l5":["propext","Classical.choice","Quot.sound"],
+    "IUT1.APP01_C04_failure_witness_l5":["propext","Quot.sound"]
+  },
+  "pa01_pa06_axioms": {
+    "status":"PASS_STANDARD_FOUNDATIONS_ONLY",
+    "theorems":17,
+    "instances":0,
+    "print_commands":33,
+    "project_defined_axioms":[],
+    "groups":[
+      {"axioms":[],"declarations":12},
+      {"axioms":["propext"],"declarations":2},
+      {"axioms":["propext","Quot.sound"],"declarations":12},
+      {"axioms":["propext","Classical.choice","Quot.sound"],"declarations":7}
+    ],
+    "example_declarations":[
+      "IUT1.PolyMorphism.PA01_bool_two_map_ne_singletons",
+      "IUT1.PolyMorphism.PA02_bool_two_map_self_comp",
+      "IUT1.PA06_signedAffine5_two_arrows_over_identity"
+    ]
+  },
+  "pa01_pa06_cold_outputs": [
+    {"module":"IUT1.Applications.PolyMorphismPrototype","sha256":"7febeb66e88f25982518ea0a12a63c5d61179d5854eea711a8123cc4434dc311","matches_producer":true},
+    {"module":"IUT1.Applications.PolyMorphismPrototypeAxiomAudit","sha256":"64f33a3de6d5105c40b80a6c14698ba22e3d5406fb36cb9ba84f5c358cd9af62","matches_producer":true},
+    {"module":"IUT1","sha256":"b726a34eaea30cd2ca1e5b8212bf5abbdd142a004a2ea09d6876a586661d55d6","matches_producer":true},
+    {"module":"IUT1Audit","sha256":"33c64c7b081fb66ac3777dc3b8ddaa9575fd76a0903ba73a420ae7462ea457d7","matches_producer":true}
+  ],
+  "gate_transfer_allowed": false
+}

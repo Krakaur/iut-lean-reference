@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "scope": "T01-T11 finite coordinate unit, APP01 methodology and PA01-PA06 algebraic prototype",
+  "mathematical_novelty": {
+    "status": "PRIOR_ART_ESTABLISHED",
+    "global_novelty_certified": false,
+    "source_ids": [
+      "SRC-OFFICIAL-7360E3ED27C235B5",
+      "SRC-TAKKUN-IUT-LEAN-9D56C46"
+    ],
+    "localizers": [
+      "IUT I section I1, printed p. 3",
+      "IUT I Definition 6.1(i), printed p. 155",
+      "IUT I Definition 6.4(i), printed p. 162",
+      "Takkun IutLean/Combinatorics/Fl.lean at pinned commit"
+    ],
+    "statement": "The finite group, action, subgroup, dihedral comparison, cardinality and quotient-fiber algebra are established mathematics; T08 has direct IUT-oriented Lean prior art."
+  },
+  "methodological_distinctiveness": {
+    "status": "NOT_FOUND_WITHIN_AUDITED_PUBLIC_SCOPE",
+    "global_novelty_certified": false,
+    "statement": "The audited public scope did not locate the exact package of visible coordinates, claim-level source bindings, rival-discriminating tests, per-T poly-action checkpoints, separated gates and AI-oriented records.",
+    "example": "The l=5 quotient-fiber model retains two left translations over one label while declaring NO_GO_GEOMETRIC.",
+    "lean_declarations": ["IUT1.PA06_signedAffine5_two_arrows_over_identity"],
+    "discriminating_test": "Any earlier public artifact containing the same integrated evidence architecture weakens this bounded negative result immediately."
+  },
+  "scope_aligned_quality_claim": {
+    "status": "PASS_SCOPE_ALIGNED_LOCAL_CANDIDATE",
+    "comparison_source_id": "SRC-TAKKUN-IUT-LEAN-9D56C46",
+    "dimensions": [
+      "source traceability",
+      "semantic falsifiability",
+      "public theorem and instance axiom coverage",
+      "non-specialist exposition",
+      "machine-readable evidence",
+      "reusable finite convention checking",
+      "source-bounded poly-morphism interface tests",
+      "LANA/IUT-oriented retrieval paths"
+    ],
+    "example": "APP01 rejects sr(a) while PA01 rejects singleton selection and PA06 retains two arrows over one quotient label.",
+    "lean_declarations": [
+      "IUT1.APP01_C03_unsigned_reflection_fails_l5",
+      "IUT1.PolyMorphism.PA01_bool_two_map_ne_singletons",
+      "IUT1.PA06_signedAffine5_two_arrows_over_identity"
+    ],
+    "global_extent_superiority": false,
+    "reviewed_manifest_sha256": "a8e3a341b240d23c5f03b13f0b238785e9351139ab7fe53acf2e6b92700ad155",
+    "repair_delta_review_sha256": "6682b4a65e613a8b4593d813b328fc1c0a87a2ca92b5c602a4e280e63e9e90ec",
+    "publication_authorized": true
+  },
+  "does_not_establish": [
+    "new IUT theorem",
+    "first Lean formalization of the finite algebra",
+    "formalization of IUT I",
+    "geometric poly-action",
+    "IUT III 3.11 to 3.12",
+    "Szpiro",
+    "abc"
+  ]
+}

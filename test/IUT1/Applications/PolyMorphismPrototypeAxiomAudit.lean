@@ -1,0 +1,37 @@
+import IUT1.Applications.PolyMorphismPrototype
+
+#print axioms IUT1.PolyMorphism
+#print axioms IUT1.PolyMorphism.singleton
+#print axioms IUT1.PolyMorphism.mem_singleton_iff
+#print axioms IUT1.PolyMorphism.PA01_singleton_injective
+#print axioms IUT1.PolyMorphism.boolIdentity
+#print axioms IUT1.PolyMorphism.boolNegation
+#print axioms IUT1.PolyMorphism.boolTwoMap
+#print axioms IUT1.PolyMorphism.boolIdentity_ne_boolNegation
+#print axioms IUT1.PolyMorphism.PA01_bool_two_map_ne_singletons
+#print axioms IUT1.PolyMorphism.comp
+#print axioms IUT1.PolyMorphism.PA02_comp_assoc
+#print axioms IUT1.PolyMorphism.PA02_comp_singleton
+#print axioms IUT1.PolyMorphism.PA02_bool_two_map_self_comp
+
+#print axioms IUT1.AlgebraicPolyActionPrototype
+#print axioms IUT1.AlgebraicPolyActionPrototype.projection
+#print axioms IUT1.AlgebraicPolyActionPrototype.surjective
+#print axioms IUT1.AlgebraicPolyActionPrototype.leftTranslationPermutation
+#print axioms IUT1.AlgebraicPolyActionPrototype.arrows
+#print axioms IUT1.AlgebraicPolyActionPrototype.PA03_arrows_nonempty
+#print axioms IUT1.AlgebraicPolyActionPrototype.PA04_arrows_mul
+#print axioms IUT1.AlgebraicPolyActionPrototype.SingleValued
+#print axioms IUT1.AlgebraicPolyActionPrototype.PA05_singleValued_of_injective
+#print axioms IUT1.AlgebraicPolyActionPrototype.PA05_multiple_arrows_of_nontrivial_kernel
+
+#print axioms IUT1.SignedAffine5TranslationLabels
+#print axioms IUT1.signedAffine5TranslationProjection
+#print axioms IUT1.signedAffine5TranslationProjection_surjective
+#print axioms IUT1.signedAffine5AlgebraicPolyActionPrototype
+#print axioms IUT1.signedAffine5NontrivialTranslation
+#print axioms IUT1.signedAffine5NontrivialTranslation_ne_one
+#print axioms IUT1.signedAffine5NontrivialTranslation_projection_eq_one
+#print axioms IUT1.PA06_signedAffine5_translation_label_card
+#print axioms IUT1.PA06_signedAffine5_two_arrows_over_identity
+#print axioms IUT1.PA06_signedAffine5_two_arrow_values_at_one

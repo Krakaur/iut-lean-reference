@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "release": "0.1.0-rc1",
+  "core": [
+    {"path":"src/IUT1/SymmetryCore.lean","targets":["T01","T02","T03","T04"],"sha256":"18107dd089f20e9dcb1ef44024e3bfad1eef640f014c820bada5fabd3d442320"},
+    {"path":"src/IUT1/SignOrbitBridge.lean","targets":["T05a","T05b","T05c","T05d"],"sha256":"6a26a7d8c0bd0442e052d781cd877288c172fa18b69973bf7419a7ee4f86119f"},
+    {"path":"src/IUT1/SignedAffineCore.lean","targets":["T06","T07","T08"],"sha256":"90eab75c856c5a1a9a6b5f8915d4a1e0d324c7082671cd9157e9371480a51e0d"},
+    {"path":"src/IUT1/SignedAffineDihedral.lean","targets":["T09","T10","T11"],"sha256":"c97ec5654e99099ddd622d5aacdd605cc9cc0ca5952a2d682e5134996b8b2ce6"}
+  ],
+  "audits": [
+    {"path":"test/IUT1/SymmetryCoreAxiomAudit.lean","sha256":"260770380cb6b3cf57f5638448aa1ed32b2cd382caa540ced96d10fd771949ed"},
+    {"path":"test/IUT1/SignOrbitBridgeAxiomAudit.lean","sha256":"8ee6d92ba4c1bd72b2dfb2fc8d2ebf28da565b628f3cf39dfc6c5a53721a4b23"},
+    {"path":"test/IUT1/SignedAffineCoreAxiomAudit.lean","sha256":"0c69210557acd7bdd38b461f31c064c3467f8f7ce0efacbe61cb555a9fb543e9"},
+    {"path":"test/IUT1/SignedAffineDihedralAxiomAudit.lean","sha256":"8c149c2fdb8a7b8a732bcd6d057f54c060ef183397d2e053cf5d56d39011dc2d"},
+    {"path":"test/IUT1/TutorialAxiomAudit.lean","sha256":"ec96fc2c9717099bfb348527eed052a768662dddfddca2f2f4e3a2587d9924d4"}
+  ],
+  "pedagogy": [
+    {"path":"src/IUT1/Tutorial.lean","targets":["T01","T02","T03","T04","T05","T06","T07","T08","T09","T10","T11"],"sha256":"966dd3cdee05971a123da673a1d7c7fa703f6815c5a9e56bcfab338823b6c94b"}
+  ],
+  "applications": [
+    {"path":"src/IUT1/Applications/ConventionAudit.lean","application":"APP01","sha256":"3abc0f01e0d965c5a049d24af7d525ee6bfe713c62ecf3294e75064ed71c2b02"},
+    {"path":"test/IUT1/Applications/ConventionAuditAxiomAudit.lean","application":"APP01","sha256":"b74d4367e949062898fc9fc9968714c62770543e3fac22d10d10585ce985123f"},
+    {"path":"src/IUT1/Applications/PolyMorphismPrototype.lean","application":"PA01-PA06","sha256":"5cb212a496cb191f197af477ef0aa22d390c4178f4f059786a52a6a0149b5695"},
+    {"path":"test/IUT1/Applications/PolyMorphismPrototypeAxiomAudit.lean","application":"PA01-PA06","sha256":"29ac2355a8a52fee302890aa252f3dc9d502436de4c7fa7296c7baf48177c631"}
+  ],
+  "integration": [
+    {"path":"src/IUT1.lean","sha256":"f08f96a1e727a3ae9ed36f9d35766b1b49c36d5fa1e8329d5f55dc4079871e01"},
+    {"path":"test/IUT1Audit.lean","sha256":"ebaad26af068f21329f50fd7c80a1e491975097c857b084b0ee119bbd700ab5d"}
+  ],
+  "copy_policy": "Core and their source-facing audits are exact byte-preserving exports; pedagogical and application material is separately gated and additive."
+}

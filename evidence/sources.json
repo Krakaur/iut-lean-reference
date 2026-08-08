@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "sources": [
+    {
+      "source_id": "SRC-OFFICIAL-7360E3ED27C235B5",
+      "title": "Inter-universal Teichmuller Theory I: Construction of Hodge Theaters",
+      "author": "Shinichi Mochizuki",
+      "year": "2021",
+      "sha256": "7360e3ed27c235b5497a0743d3ed1646fbb97688547d16b7c784fc7f127f1f03",
+      "url": "https://www.kurims.kyoto-u.ac.jp/~motizuki/Inter-universal%20Teichmuller%20Theory%20I.pdf",
+      "localizers": ["section I1, printed pp. 3-4", "section 0 poly-morphism definition, printed pp. 33-34", "section 4 poly-morphism context, printed pp. 98-100", "Definition 6.1(i), printed p. 155", "Example 6.3(ii), printed pp. 161-162", "Definition 6.4, printed pp. 162-163"],
+      "polyaction_anchor_evidence": {
+        "verdict": "PASS_INDEPENDENT_SOURCE_ANCHORS_R3",
+        "P1": 0,
+        "P2": 0,
+        "P3": 0,
+        "locator_extract_sha256": "3de189248550332ae6b9f25f971d59ebcf7008e3dbb6899e72da79b636a9722b",
+        "anchor_manifest_sha256": "c8ec7aa40abf8ff4f947364a423818073a5de1cb0a209bc1de8e68d944494a00",
+        "source_map_sha256": "b1dc1901d51846ecb76604e169daff091b55810364f1fcf8fde11c52c0751a15",
+        "review_sha256": "183688c64d863a7afbf93d75f5780c456c23b8c9753b2c6fff15398d7e6bd237",
+        "anchors": [
+          {"id":"PA-SRC-I1","printed_pages":"4","extract_lines":"164-200","epistemic_status":"SOURCE_EXPLICIT_OVERVIEW","discriminant":"deleting the geometric carrier, automorphism subquotient and provenance leaves the algebraic prototype true"},
+          {"id":"PA-SRC-0","printed_pages":"33-34","extract_lines":"1855-1876","epistemic_status":"SOURCE_EXPLICIT_DEFINITION","discriminant":"a two-arrow collection is not either selected singleton"},
+          {"id":"PA-SRC-4","printed_pages":"98-100","extract_lines":"5651-5850","epistemic_status":"SOURCE_EXPLICIT_CONSTRUCTION_CONTEXT","discriminant":"label cardinality survives empty or full arrow mutations"},
+          {"id":"PA-SRC-6-EXAMPLE","printed_pages":"161-162","extract_lines":"9600-9675","epistemic_status":"SOURCE_EXPLICIT_APPLICATION_CONTEXT","discriminant":"an ordinary affine action survives deletion of source categorical data"},
+          {"id":"PA-SRC-6-DEF64","printed_pages":"162-163","extract_lines":"9679-9806","epistemic_status":"SOURCE_EXPLICIT_DEFINITION","discriminant":"a function-only model omits bridges, capsules and compatibility data"}
+        ],
+        "lean_examples": [
+          "IUT1.PolyMorphism.PA01_bool_two_map_ne_singletons",
+          "IUT1.AlgebraicPolyActionPrototype.PA04_arrows_mul",
+          "IUT1.PA06_signedAffine5_two_arrows_over_identity"
+        ],
+        "geometric_status": "NO_GO_GEOMETRIC_CURRENT_T01_T11"
+      },
+      "redistributed": false
+    },
+    {
+      "source_id": "SRC-JP-5AF69BF49601A272",
+      "title": "Introduction to Inter-universal Teichmuller Theory",
+      "author": "Yuichiro Hoshi",
+      "year": "2019",
+      "sha256": "5af69bf49601a27270d4250c5879dcabcebe8604034598763d25e1c336ea4f6e",
+      "url": "https://repository.kulib.kyoto-u.ac.jp/dspace/bitstream/2433/251553/1/B76-02.pdf",
+      "localizers": ["section 17, printed p. 142"],
+      "role": "corroborative exposition",
+      "redistributed": false
+    },
+    {
+      "source_id": "SRC-OFFICIAL-9A7EE3C77B1C7717",
+      "title": "Inter-universal Teichmuller Theory III: Canonical Splittings of the Log-theta-lattice",
+      "author": "Shinichi Mochizuki",
+      "year": "2021",
+      "sha256": "9a7ee3c77b1c7717210c0613eb39b6844649d0040dc3d9e1be7d544f8f91a0b9",
+      "url": "https://www.kurims.kyoto-u.ac.jp/~motizuki/Inter-universal%20Teichmuller%20Theory%20III.pdf",
+      "role": "roadmap-only; no T01-T11 claim depends on this source",
+      "redistributed": false
+    },
+    {
+      "source_id": "SRC-TAKKUN-IUT-LEAN-9D56C46",
+      "title": "Takkun-kohinata/IUT_LEAN",
+      "author": "Takkun-kohinata",
+      "url": "https://github.com/Takkun-kohinata/IUT_LEAN/tree/9d56c46db270896876a83a484f857a7186a2a8bf",
+      "git_commit": "9d56c46db270896876a83a484f857a7186a2a8bf",
+      "git_tree": "4751d8ce2d96dfd40b1d1cb574487fdbae8727d5",
+      "role": "prior-art comparator; no project theorem depends on this source",
+      "redistributed": false
+    },
+    {
+      "source_id": "SRC-LANA-OFFICIAL-HOME",
+      "title": "Project LANA",
+      "author": "Project LANA",
+      "url": "https://anabelian.org/",
+      "last_verified_utc": "2026-08-07",
+      "role": "community-alignment source; defines LANA as Lean for ANAbelian geometry and states its primary goal",
+      "redistributed": false
+    },
+    {
+      "source_id": "SRC-ZEN-LANA-ANNOUNCEMENT-20260331",
+      "title": "ZEN Mathematics Center Announces New Project LANA for Computer-Assisted Verification of IUT Theory",
+      "author": "ZEN University",
+      "year": "2026",
+      "url": "https://zen.ac.jp/news/zmcpostevent0331e",
+      "localizers": ["About the LANA Project", "Current Status and Future Outlook"],
+      "last_verified_utc": "2026-08-07",
+      "role": "community objectives and neutral verification policy",
+      "redistributed": false
+    },
+    {
+      "source_id": "SRC-ZEN-LANA-INTERIM-20260717",
+      "title": "Project LANA Interim Report on IUT Theory announcement",
+      "author": "ZEN University",
+      "year": "2026",
+      "url": "https://zen.ac.jp/news/zmcpostevent0717",
+      "localizers": ["public report overview", "current status and future outlook"],
+      "last_verified_utc": "2026-08-07",
+      "role": "community need for explicit unresolved-point and Lean-translation workflows; roadmap only",
+      "redistributed": false
+    }
+  ]
+}

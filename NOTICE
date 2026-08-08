@@ -1,0 +1,7 @@
+IUT Lean Reference Library
+Copyright 2026 Dirk Hans Krakaur Floranes
+ORCID: https://orcid.org/0000-0002-6465-034X
+
+The official IUT papers, the local research corpus and third-party source code
+are not included in this repository. Mathlib is an external dependency and is
+distributed under its own license.

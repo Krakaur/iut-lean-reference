@@ -1,0 +1,13 @@
+{"anti_pattern_id":"AP01","name":"coordinate-geometric-collapse","bad_inference":"Fl l is definitionally the geometric label or cusp set","rejected_by":"type discipline and missing source-backed realization map"}
+{"anti_pattern_id":"AP02","name":"star-means-nonzero-only","bad_inference":"the star notation means the units without quotienting by sign","rejected_by":"T03-T04 quotient construction and l=5 cardinal two"}
+{"anti_pattern_id":"AP03","name":"zero-orbit-omission","bad_inference":"the additive sign quotient has (l-1)/2 classes","rejected_by":"T02 and T05: zero is a fixed class"}
+{"anti_pattern_id":"AP04","name":"all-equivariant-charts","bad_inference":"every sign-equivariant chart belongs to the distinguished source orbit","rejected_by":"formalized T05c multiplication-by-two countermodel"}
+{"anti_pattern_id":"AP05","name":"direct-product-substitution","bad_inference":"(a,s)*(b,t)=(a+b,xor s t)","rejected_by":"T06 l=5 translation four rather than three"}
+{"anti_pattern_id":"AP06","name":"reversed-composition","bad_inference":"g*h acts by applying g first and then h while retaining the T07 statement","rejected_by":"T07 l=5 action value one versus the rival value"}
+{"anti_pattern_id":"AP07","name":"cardinality-type-collapse","bad_inference":"SignedAffine l is the additive sign quotient","rejected_by":"T08 l=5 cardinal ten versus three"}
+{"anti_pattern_id":"AP08","name":"kernel-to-source-transfer","bad_inference":"Lean acceptance proves that definitions faithfully represent IUT geometry","rejected_by":"separate semantic, kernel, fidelity and replication gates"}
+{"anti_pattern_id":"AP09","name":"ordinary-action-for-poly-action","bad_inference":"a MulAction on coordinates formalizes the source poly-action","rejected_by":"explicit exclusion of geometric objects and provenance"}
+{"anti_pattern_id":"AP10","name":"roadmap-as-result","bad_inference":"T01-T11 advance or prove IUT III 3.11 to 3.12","rejected_by":"roadmap-only status and missing dependency contracts"}
+{"anti_pattern_id":"AP11","name":"normality-by-assumption","bad_inference":"the translation subgroup may be declared normal without deriving it from the visible group law","rejected_by":"T09 proves index two first and derives normality from that theorem"}
+{"anti_pattern_id":"AP12","name":"unsigned-reflection-coordinate","bad_inference":"the pair (a,true) maps to the dihedral constructor sr(a)","rejected_by":"T10 requires sr(-a); the l=5 action discriminator gives four versus two"}
+{"anti_pattern_id":"AP13","name":"regression-vector-collapse","bad_inference":"the entries (2,3,10) or (3,4,14) are competing formulas for one object","rejected_by":"T11 states the three cardinalities at distinct Lean types"}
