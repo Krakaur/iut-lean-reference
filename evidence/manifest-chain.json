@@ -1,0 +1,164 @@
+{
+  "schema_version": "1.0.0",
+  "release_subject": "0.1.0-rc2",
+  "purpose": "Non-circular reconciliation of reviewed historical manifests, later editorial and operational deltas, and published release subjects.",
+  "self_reference_policy": {
+    "release_manifest_excludes_itself": true,
+    "current_manifest_sha256_recorded_inside_attested_tree": false,
+    "detached_release_attestation_required": true,
+    "reason": "An in-tree file cannot non-circularly attest the hash of a manifest that hashes that file."
+  },
+  "invariants": {
+    "promotion": false,
+    "gate_transfer_allowed": false,
+    "geometric_status": "NO_GO_GEOMETRIC_CURRENT_T01_T11",
+    "historical_hashes_are_immutable_subject_identifiers": true,
+    "publication_does_not_imply_canonical_incorporation": true
+  },
+  "historical_reviews": [
+    {
+      "source_id": "REVIEW-WHOLE-PACKAGE-REPAIR-70",
+      "localizer": "manifest a8e3a341b240d23c5f03b13f0b238785e9351139ab7fe53acf2e6b92700ad155; 70 entries",
+      "manifest_sha256": "a8e3a341b240d23c5f03b13f0b238785e9351139ab7fe53acf2e6b92700ad155",
+      "manifest_entries": 70,
+      "epistemic_status": "DELTA_PASS_FOR_REVIEWED_BYTES",
+      "review_sha256": "6682b4a65e613a8b4593d813b328fc1c0a87a2ca92b5c602a4e280e63e9e90ec",
+      "discriminant": "A declaration added without an axiom query makes the reviewed validator fail; later manifests do not inherit this PASS."
+    },
+    {
+      "source_id": "REVIEW-PACKAGE-METADATA-CLOSEOUT-70",
+      "localizer": "manifest fb60a3462e0c2f10dab9ce3546c1b8dbb317c4eea6189cc1b2fa332fe966dd8c; 70 entries",
+      "manifest_sha256": "fb60a3462e0c2f10dab9ce3546c1b8dbb317c4eea6189cc1b2fa332fe966dd8c",
+      "manifest_entries": 70,
+      "epistemic_status": "METADATA_DELTA_PASS",
+      "review_sha256": "12fde4e73cbf7775c312014f38eef6b1d1fb4862418e8d8c19dc82df4b29db20",
+      "discriminant": "The current manifest may differ while the historical reviewed manifest remains named explicitly."
+    },
+    {
+      "source_id": "REVIEW-PUBLICATION-METADATA-INITIAL-77",
+      "localizer": "manifest 7f452c9ebb08b17718ab1b69e069e83c0ac6f7d0cf2c03eb79871e32cb561459; 77 entries",
+      "manifest_sha256": "7f452c9ebb08b17718ab1b69e069e83c0ac6f7d0cf2c03eb79871e32cb561459",
+      "manifest_entries": 77,
+      "epistemic_status": "REVISE_P3_1",
+      "review_sha256": "b385e49479ae2c6313cd7c6cea5512543ab011656c7eb6fa6e0f9c36f2572142",
+      "discriminant": "The initial P3 finding remains visible and must not be erased by the later delta review."
+    },
+    {
+      "source_id": "REVIEW-PUBLICATION-METADATA-DELTA-77",
+      "localizer": "manifest b38c7dd958cc04c13fa8ed1edd6b9a7f730dec5a075717b07bdde0c397b615c9; 77 entries",
+      "manifest_sha256": "b38c7dd958cc04c13fa8ed1edd6b9a7f730dec5a075717b07bdde0c397b615c9",
+      "manifest_entries": 77,
+      "epistemic_status": "GO_PUBLICATION_METADATA_ONLY",
+      "review_sha256": "12e333c0edd4a473b7dba20940e1ebef6df6b5b7cdbdc10125dda071e00d7fcd",
+      "discriminant": "Reverting the one reviewed semantic metadata edit and its manifest entry reconstructs the predecessor exactly."
+    },
+    {
+      "source_id": "REVIEW-PUBLICATION-FINAL-RECORD-77",
+      "localizer": "manifest 524a5aad24ce1a791c9a3006f17d83c466013b457f82c511a83403fa05211983; 77 entries",
+      "manifest_sha256": "524a5aad24ce1a791c9a3006f17d83c466013b457f82c511a83403fa05211983",
+      "manifest_entries": 77,
+      "epistemic_status": "GO_REGISTRAL_ONLY",
+      "review_sha256": "6f8c140c94e76211d3545774620270e57eebc82febcfc87bdc22c841d7d68ccd",
+      "discriminant": "Reverting only gates, roadmap and status reconstructs the reviewed b38c7dd9 manifest."
+    },
+    {
+      "source_id": "DELTA-LF-INTERMEDIATE-78",
+      "localizer": "manifest 2433325bcf024ebc496385303700f527455c9cb28cb7b92ba09f6e9412df85a2; 78 entries",
+      "manifest_sha256": "2433325bcf024ebc496385303700f527455c9cb28cb7b92ba09f6e9412df85a2",
+      "manifest_entries": 78,
+      "epistemic_status": "RECONSTRUCTED_INTERMEDIATE_NO_AUTONOMOUS_PASS",
+      "review_sha256": "4f003298329b845556743634657d0e2feeb52c31983dc3c7d18b9d9fd80e3620",
+      "discriminant": "Exact inversion of the final Markdown cleanup reconstructs this intermediate manifest."
+    },
+    {
+      "source_id": "REVIEW-LF-REPRODUCIBILITY-78",
+      "localizer": "manifest 34fc267c6aa76e8dc65e80a4a5b77102297680aca46d457cd0b4a34e1e5bc2ac; 78 entries",
+      "manifest_sha256": "34fc267c6aa76e8dc65e80a4a5b77102297680aca46d457cd0b4a34e1e5bc2ac",
+      "manifest_entries": 78,
+      "epistemic_status": "GO_OPERATIONAL_ONLY",
+      "review_sha256": "4f003298329b845556743634657d0e2feeb52c31983dc3c7d18b9d9fd80e3620",
+      "discriminant": "Index, working tree and replicated checkout all reproduce LF bytes and the same manifest; no scientific PASS is transferred."
+    }
+  ],
+  "rc1_git_sequence": [
+    {
+      "source_id": "RC1-COMMIT-3CCE010",
+      "localizer": "commit 3cce0106e4692fb4581f1e6353add5120ef81e8e",
+      "manifest_sha256": "34fc267c6aa76e8dc65e80a4a5b77102297680aca46d457cd0b4a34e1e5bc2ac",
+      "manifest_entries": 78,
+      "delta_class": "initial_publication",
+      "epistemic_status": "CI_FAILED_VALIDATOR_PATH_ORDERING",
+      "ci_run": 31233290103,
+      "discriminant": "Validator reported release manifest path mismatch with missing=[] and extra=[]."
+    },
+    {
+      "source_id": "RC1-COMMIT-7BC61DA",
+      "localizer": "commit 7bc61da4c52f4b84b49ee864fccb7d8b02913b13",
+      "manifest_sha256": "ee4b670d13fa4b7166b6667b27a4db4e0459c09bce4f7bce5c6c26a5081ea7dc",
+      "manifest_entries": 78,
+      "delta_class": "release_tooling",
+      "epistemic_status": "CI_FAILED_MISSING_LAKE_MANIFEST",
+      "ci_run": 31233470281,
+      "discriminant": "lean-action reported that no lake-manifest.json was found."
+    },
+    {
+      "source_id": "RC1-COMMIT-C380853",
+      "localizer": "commit c3808537460e743315cd0de85d90432ee91a54c6",
+      "manifest_sha256": "ce43b7ca4ee4038b7205b4bff0a56c895c39ad9aab22f706d36e89edaa7f6658",
+      "manifest_entries": 79,
+      "delta_class": "dependency_lock_and_build_context",
+      "epistemic_status": "CI_FAILED_AUDIT_MODULE_RESOLUTION",
+      "ci_run": 31233864747,
+      "discriminant": "Lake resolved IUT1Audit under src and could not find the test modules."
+    },
+    {
+      "source_id": "RC1-COMMIT-BDC1FC",
+      "localizer": "commit bdc1fcdb01c46e0a92c1aed487e7d426e556d83a",
+      "manifest_sha256": "1e0e413a092cb5095416af00062c052bba3dccfd7031656e63e2452f72e33fc5",
+      "manifest_entries": 79,
+      "delta_class": "lake_module_resolution",
+      "epistemic_status": "BUILD_PASS_NANODA_NOT_RUN_WRAPPER_FAILURE",
+      "ci_run": 31234216244,
+      "discriminant": "The 1272-job Lake build passed; the upstream nanoda wrapper failed to detect a module from lakefile.toml."
+    },
+    {
+      "source_id": "RC1-COMMIT-E637F8",
+      "localizer": "commit e637f8376c87194db932edd9317e0ced7c182daf",
+      "manifest_sha256": "41efef1d5b9bc20bc77c0bc1586b2d6efba59b606cc9ddecbc812e09a1cd3202",
+      "manifest_entries": 79,
+      "delta_class": "ci_kernel_wrapper",
+      "epistemic_status": "BUILD_PASS_LEANCHECKER_WRAPPER_FAILURE",
+      "ci_run": 31234467157,
+      "discriminant": "The Lake build passed; the wrapper sought IUTLeanReference rather than explicit module roots."
+    },
+    {
+      "source_id": "RC1-PUBLISHED-2635EC",
+      "localizer": "commit 2635ec15045a2880810d15984337bb7c07ef842f; tag v0.1.0-rc1",
+      "tree": "47da7da7e18e01d352e7237222d8779d4a405f9c",
+      "manifest_sha256": "47dbdef02930bc2e0d1ae8a9513ae597122f0d34ddd324a3d733464809409ca4",
+      "manifest_entries": 79,
+      "delta_class": "explicit_kernel_roots_and_publication",
+      "epistemic_status": "PUBLISHED_INDEPENDENT_CANDIDATE_OPERATIONALLY_VERIFIED",
+      "ci_runs": [31234677475, 31234817105],
+      "discriminant": "Main and tag runs both conclude success at the exact commit; rc1 remains unpromoted and does not inherit a new semantic or fidelity review."
+    }
+  ],
+  "current_release_subject": {
+    "source_id": "RC2-CORRECTIVE-SUBJECT",
+    "localizer": "tag subject v0.1.0-rc2 descended from rc1 commit 2635ec15045a2880810d15984337bb7c07ef842f",
+    "version": "0.1.0-rc2",
+    "status": "RC2_PENDING_EXTERNAL_ATTESTATION",
+    "parent_commit": "2635ec15045a2880810d15984337bb7c07ef842f",
+    "parent_manifest_sha256": "47dbdef02930bc2e0d1ae8a9513ae597122f0d34ddd324a3d733464809409ca4",
+    "epistemic_status": "CORRECTIVE_CANDIDATE_NOT_YET_EXTERNALLY_ATTESTED",
+    "scientific_gate_scope": "HISTORICAL_ONLY_NOT_REEVALUATED_AT_RC2",
+    "detached_attestation_asset": "RC2_EXTERNAL_ATTESTATION.json",
+    "discriminant": "The detached asset must bind tag, commit, tree, manifest, exact changed paths and CI runs after the commit is immutable."
+  },
+  "prohibited_inferences": [
+    "No manifest listed here receives a PASS issued for another manifest.",
+    "Successful build or kernel replay does not imply semantic fidelity.",
+    "Publication does not imply canonical incorporation, LANA affiliation or human expert review.",
+    "This chain does not establish IUT I, geometric poly-actions, IUT III 3.11 to 3.12, Szpiro or abc."
+  ]
+}

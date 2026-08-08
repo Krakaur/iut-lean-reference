@@ -10,6 +10,17 @@ the source documents. `takkun-benchmark.json` freezes the complete static
 comparison denominator and its separate kernel/semantic limitations.
 `novelty.json` separates established mathematics, bounded methodological
 distinctiveness and the still-gated scope-aligned quality claim.
+`manifest-chain.json` reconciles historical manifests, Git/CI deltas and rc1
+without self-attesting rc2. `verification-policy.json`,
+`module-declaration-inventory.json` and `axiom-whitelist.json` define the
+release-specific 16/68/92 assurance campaign.
+`human-source-review-checklist.json` records six ranges whose AI-assisted
+process review must not be presented as expert human review.
+
+The current in-tree status is `RC2_PENDING_EXTERNAL_ATTESTATION`. A detached
+release asset, not this directory, must bind the immutable rc2 commit, tree,
+manifest and CI runs.
+
 
 ## Independent core results
 

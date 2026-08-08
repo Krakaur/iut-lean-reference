@@ -10,7 +10,7 @@ The program follows the architecture of *Inter-universal Teichmüller Theory I*:
 
 | Unit | Source region | Current state | Main semantic risk |
 |---|---|---|---|
-| Finite symmetry foundation | Introduction §I1; §0 poly-morphisms; Definitions 6.1 and 6.4 | T01--T11 and algebraic PA01--PA06 independently verified; geometric NO_GO; public-package gate PASS; publication-metadata review PASS | Conflating groups, quotients, torsors, chart orbits, algebraic prototypes and geometric poly-actions. |
+| Finite symmetry foundation | Introduction §I1; §0 poly-morphisms; Definitions 6.1 and 6.4 | Independent public candidate contains T01--T11 and algebraic PA01--PA06 with historical byte-specific gates; canonical track remains at T05; expert human source review pending; geometric NO_GO | Conflating publication with canonical incorporation, or groups, quotients, torsors, chart orbits, algebraic prototypes and geometric poly-actions. |
 | Notation and ambient types | §0, p. 33 | source structure located; claim map required | Reusing a symbol after its category or universe changes. |
 | Punctured elliptic-curve coverings | §1, p. 37 | source structure located; uncontracted | Replacing a finite étale covering and its provenance by a finite set or a degree field. |
 | Tempered coverings | §2, p. 44; Theorem B and Corollary 2.5 | source structure located; uncontracted | Replacing tempered topology and decomposition data by an injective abstract homomorphism. |

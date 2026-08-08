@@ -11,8 +11,8 @@ authors:
   - family-names: "Krakaur Floranes"
     given-names: "Dirk Hans"
     orcid: "https://orcid.org/0000-0002-6465-034X"
-version: 0.1.0-rc1
-date-released: 2026-08-07
+version: 0.1.0-rc2
+date-released: 2026-08-08
 repository-code: "https://github.com/Krakaur/iut-lean-reference"
 url: "https://github.com/Krakaur/iut-lean-reference"
 license: Apache-2.0

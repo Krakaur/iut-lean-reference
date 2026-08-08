@@ -6,6 +6,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 from typing import Any
@@ -14,7 +15,10 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_CLAIMS = [f"T{i:02d}" for i in range(1, 12)]
 EXPECTED_PUBLIC_THEOREM_INSTANCES = 68
+EXPECTED_LEAN_MODULES = 16
+EXPECTED_AXIOM_QUERIES = 92
 EXPECTED_MATHLIB_REV = "8f9d9cff6bd728b17a24e163c9402775d9e6a365"
+EXPECTED_RELEASE = "0.1.0-rc2"
 EXPECTED_POLYACTION_ROLES = {
     "T01": "PREREQUISITE_ONLY",
     "T02": "PREREQUISITE_ONLY",
@@ -89,6 +93,7 @@ def load_jsonl(path: Path) -> list[dict[str, Any]]:
 def check_required_files() -> None:
     required = {
         ".gitattributes",
+        ".github/workflows/lean.yml",
         "lake-manifest.json",
         "README.md", "STATUS.md", "LICENSING.md", "lakefile.toml", "lean-toolchain",
         "CITATION.cff", "codemeta.json", "CONTRIBUTING.md", "LICENSE",
@@ -101,10 +106,18 @@ def check_required_files() -> None:
         "docs/poly-actions/source-and-boundary.md",
         "docs/poly-actions/algebraic-prototype.md",
         "docs/community/lana-outreach.md",
+        "docs/foundations/human-source-review-checklist.md",
         "src/IUT1/Applications/PolyMorphismPrototype.lean",
         "test/IUT1/Applications/PolyMorphismPrototypeAxiomAudit.lean",
         "evidence/artifacts.json", "evidence/gates.json",
-        "evidence/sources.json", MANIFEST_REL,
+        "evidence/sources.json", "evidence/manifest-chain.json",
+        "evidence/human-source-review-checklist.json",
+        "evidence/verification-policy.json",
+        "evidence/module-declaration-inventory.json",
+        "evidence/axiom-whitelist.json",
+        "scripts/check_lean_policy.py",
+        "scripts/check_axiom_surface.py",
+        MANIFEST_REL,
     }
     for rel in sorted(required):
         if not (ROOT / rel).is_file():
@@ -130,6 +143,10 @@ def check_authorship_metadata() -> None:
 
     codemeta = load_json(ROOT / "codemeta.json") or {}
     author = codemeta.get("author", {})
+    if codemeta.get("version") != EXPECTED_RELEASE:
+        fail("codemeta.json version does not match the corrective release")
+    if codemeta.get("datePublished") != "2026-08-08":
+        fail("codemeta.json datePublished does not match rc2")
     if codemeta.get("@context") != "https://w3id.org/codemeta/3.1":
         fail("codemeta.json must use the CodeMeta 3.1 context")
     if codemeta.get("codeRepository") != expected_repo:
@@ -141,6 +158,8 @@ def check_authorship_metadata() -> None:
 
     cff = (ROOT / "CITATION.cff").read_text(encoding="utf-8")
     for required in (
+        f"version: {EXPECTED_RELEASE}",
+        "date-released: 2026-08-08",
         'given-names: "Dirk Hans"',
         'family-names: "Krakaur Floranes"',
         f'orcid: "{expected_orcid}"',
@@ -412,6 +431,109 @@ def check_release_manifest() -> None:
             fail(f"release manifest hash mismatch for {entry['path']}: {actual}")
 
 
+def check_manifest_chain() -> None:
+    chain = load_json(ROOT / "evidence" / "manifest-chain.json") or {}
+    gates = load_json(ROOT / "evidence" / "gates.json") or {}
+    if chain.get("release_subject") != EXPECTED_RELEASE:
+        fail("manifest chain release_subject does not match rc2")
+    invariants = chain.get("invariants", {})
+    if invariants.get("promotion") is not False:
+        fail("manifest chain must preserve promotion=false")
+    if invariants.get("gate_transfer_allowed") is not False:
+        fail("manifest chain must preserve gate_transfer_allowed=false")
+    if invariants.get("geometric_status") != "NO_GO_GEOMETRIC_CURRENT_T01_T11":
+        fail("manifest chain must preserve the geometric NO_GO")
+    self_policy = chain.get("self_reference_policy", {})
+    if self_policy.get("current_manifest_sha256_recorded_inside_attested_tree") is not False:
+        fail("manifest chain permits circular current-manifest attestation")
+    if self_policy.get("detached_release_attestation_required") is not True:
+        fail("manifest chain must require a detached release attestation")
+
+    expected_history = {
+        "a8e3a341b240d23c5f03b13f0b238785e9351139ab7fe53acf2e6b92700ad155": 70,
+        "fb60a3462e0c2f10dab9ce3546c1b8dbb317c4eea6189cc1b2fa332fe966dd8c": 70,
+        "7f452c9ebb08b17718ab1b69e069e83c0ac6f7d0cf2c03eb79871e32cb561459": 77,
+        "b38c7dd958cc04c13fa8ed1edd6b9a7f730dec5a075717b07bdde0c397b615c9": 77,
+        "524a5aad24ce1a791c9a3006f17d83c466013b457f82c511a83403fa05211983": 77,
+        "2433325bcf024ebc496385303700f527455c9cb28cb7b92ba09f6e9412df85a2": 78,
+        "34fc267c6aa76e8dc65e80a4a5b77102297680aca46d457cd0b4a34e1e5bc2ac": 78,
+    }
+    observed_history = {
+        item.get("manifest_sha256"): item.get("manifest_entries")
+        for item in chain.get("historical_reviews", [])
+        if isinstance(item, dict)
+    }
+    if observed_history != expected_history:
+        fail("manifest chain historical reviewed subjects diverge")
+
+    sequence = chain.get("rc1_git_sequence", [])
+    rc1 = sequence[-1] if sequence else {}
+    if rc1.get("manifest_sha256") != "47dbdef02930bc2e0d1ae8a9513ae597122f0d34ddd324a3d733464809409ca4":
+        fail("manifest chain does not freeze the published rc1 manifest")
+    if rc1.get("manifest_entries") != 79:
+        fail("manifest chain rc1 denominator is not 79")
+
+    current = chain.get("current_release_subject", {})
+    if current.get("status") != "RC2_PENDING_EXTERNAL_ATTESTATION":
+        fail("manifest chain current subject has an unexpected status")
+    if "manifest_sha256" in current:
+        fail("manifest chain current subject must not self-record its manifest hash")
+    if current.get("parent_commit") != "2635ec15045a2880810d15984337bb7c07ef842f":
+        fail("manifest chain rc2 parent is not the frozen rc1 commit")
+
+    whole_subject = gates.get("whole_package", {}).get("historical_reviewed_subject", {})
+    publication_subject = gates.get("publication_metadata", {}).get("historical_reviewed_subject", {})
+    if whole_subject.get("manifest_sha256") != "a8e3a341b240d23c5f03b13f0b238785e9351139ab7fe53acf2e6b92700ad155":
+        fail("gates whole-package historical subject diverges from the manifest chain")
+    if whole_subject.get("manifest_entries") != 70:
+        fail("gates whole-package historical denominator is not 70")
+    if publication_subject.get("manifest_sha256") != "b38c7dd958cc04c13fa8ed1edd6b9a7f730dec5a075717b07bdde0c397b615c9":
+        fail("gates publication historical subject diverges from the manifest chain")
+    if publication_subject.get("manifest_entries") != 77:
+        fail("gates publication historical denominator is not 77")
+    if "public_files" in gates.get("whole_package", {}):
+        fail("gates whole_package retains an ambiguous current public_files field")
+
+
+def check_human_source_review() -> None:
+    checklist = load_json(ROOT / "evidence" / "human-source-review-checklist.json") or {}
+    if checklist.get("source_id") != "SRC-OFFICIAL-7360E3ED27C235B5":
+        fail("human source checklist has an unexpected source_id")
+    if checklist.get("reviewer_class") != "AI_ASSISTED_PROCESS_REVIEW":
+        fail("human source checklist must disclose AI-assisted process review")
+    if checklist.get("human_pass_inferred") is not False:
+        fail("human source checklist must state human_pass_inferred=false")
+    items = checklist.get("items", [])
+    if len(items) != 6:
+        fail(f"human source checklist denominator is {len(items)}, expected 6")
+    expected_ids = {f"HSR-{index:02d}" for index in range(1, 7)}
+    if {item.get("check_id") for item in items if isinstance(item, dict)} != expected_ids:
+        fail("human source checklist IDs are incomplete")
+    for item in items:
+        if item.get("epistemic_status") != "PENDING_HUMAN_EXPERT_REVIEW":
+            fail(f"{item.get('check_id')} improperly claims completed human review")
+        if item.get("human_reviewer") is not None or item.get("verdict") != "PENDING":
+            fail(f"{item.get('check_id')} contains an unsigned or inferred human verdict")
+        for field in ("localizer", "review_question", "discriminant"):
+            if not item.get(field):
+                fail(f"{item.get('check_id')} lacks {field}")
+
+
+def check_release_specific_assurance() -> None:
+    for relative in ("scripts/check_lean_policy.py", "scripts/check_axiom_surface.py"):
+        process = subprocess.run(
+            [sys.executable, str(ROOT / relative)],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            check=False,
+        )
+        if process.returncode != 0:
+            fail(f"{relative} failed static assurance: {process.stdout.strip()} {process.stderr.strip()}")
+
+
 def check_axiom_audit_denominator() -> None:
     declaration_files = sorted((ROOT / "src" / "IUT1").rglob("*.lean"))
     declaration_files += sorted((ROOT / "test" / "IUT1").rglob("*.lean"))
@@ -475,6 +597,8 @@ def check_lean_escapes() -> None:
 
 def check_gate_separation() -> None:
     gates = load_json(ROOT / "evidence" / "gates.json") or {}
+    if gates.get("release") != EXPECTED_RELEASE:
+        fail("evidence/gates.json release does not match rc2")
     if gates.get("gate_transfer_allowed") is not False:
         fail("evidence/gates.json must state gate_transfer_allowed=false")
     for campaign in gates.get("campaigns", []):
@@ -484,6 +608,31 @@ def check_gate_separation() -> None:
     target_sets = {tuple(campaign.get("targets", [])) for campaign in gates.get("campaigns", [])}
     if ("PA01", "PA02", "PA03", "PA04", "PA05", "PA06") not in target_sets:
         fail("evidence/gates.json lacks a separate PA01-PA06 campaign")
+    if any(campaign.get("promotion") is not False for campaign in gates.get("campaigns", [])):
+        fail("every historical campaign must preserve promotion=false")
+    current = gates.get("current_release_subject", {})
+    if current.get("status") != "RC2_PENDING_EXTERNAL_ATTESTATION":
+        fail("gates current release subject is not pending detached attestation")
+    if current.get("current_manifest_sha256_intentionally_omitted") is not True:
+        fail("gates current release subject does not prevent manifest self-attestation")
+    if current.get("scientific_gate_scope") != "HISTORICAL_ONLY_NOT_REEVALUATED_AT_RC2":
+        fail("gates transfers a scientific result to rc2")
+    if current.get("promotion") is not False:
+        fail("gates current release subject must preserve promotion=false")
+    human = gates.get("human_source_review", {})
+    if human.get("epistemic_status") != "PENDING_HUMAN_EXPERT_REVIEW":
+        fail("gates must preserve pending human expert source review")
+    if human.get("human_pass_inferred") is not False or human.get("pending_ranges") != 6:
+        fail("gates human source-review denominator or inference flag is invalid")
+    assurance = gates.get("release_assurance", {})
+    if assurance.get("expected_modules") != EXPECTED_LEAN_MODULES:
+        fail("gates release assurance module denominator is invalid")
+    if assurance.get("expected_public_theorem_instances") != EXPECTED_PUBLIC_THEOREM_INSTANCES:
+        fail("gates release assurance declaration denominator is invalid")
+    if assurance.get("expected_axiom_queries") != EXPECTED_AXIOM_QUERIES:
+        fail("gates release assurance axiom-query denominator is invalid")
+    if assurance.get("fidelity") != "NOT_EVALUATED_IN_CI":
+        fail("gates illegally transfers fidelity into CI")
 
 
 def main() -> int:
@@ -493,7 +642,10 @@ def main() -> int:
     check_machine_layer()
     check_export_hashes()
     check_release_manifest()
+    check_manifest_chain()
+    check_human_source_review()
     check_axiom_audit_denominator()
+    check_release_specific_assurance()
     check_markdown_links()
     check_public_boundary()
     check_lean_escapes()
@@ -513,7 +665,10 @@ def main() -> int:
         "status": "PASS" if not ERRORS else "FAIL",
         "errors": ERRORS,
         "claims_expected": len(EXPECTED_CLAIMS),
+        "lean_modules_expected": EXPECTED_LEAN_MODULES,
         "public_theorem_instance_denominator": theorem_instance_count,
+        "axiom_queries_expected": EXPECTED_AXIOM_QUERIES,
+        "human_source_review_pending": 6,
         "release_manifest_denominator": len(public_files()),
         "source_pdfs_redistributed": False,
     }

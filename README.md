@@ -3,6 +3,19 @@
 An English, source-audited and pedagogical Lean reference for a small finite
 symmetry layer appearing in *Inter-universal Teichmüller Theory I*.
 
+**Repository status.** This is a published independent release-candidate
+project containing a verified Lean formalization of a bounded algebraic and
+coordinatized fragment motivated by IUT I. “Published” describes public
+distribution and licensing. It does not mean that the artifact has been
+incorporated into the canonical `IUT1-I1-SYM-001` study unit, adopted by
+Project LANA, or promoted to an official IUT formalization. The canonical
+project ledger remains separate, closes at T05 and records `promotion=false`.
+
+Existing PASS labels apply only to their named bytes and gates. They are not
+transferred to canonical incorporation, geometric realization, Project LANA
+acceptance, the corrective rc2 package as a whole, or expert human source
+approval.
+
 The first release consolidates the requested T01--T08 core and three
 non-geometric closure/regression targets, T09--T11. It is designed for three audiences:
 mathematicians who do not program in Lean, Lean users who do not specialize in
@@ -67,6 +80,7 @@ examples, independent gates, and machine-readable claim records.
 - [Poly-action source map and boundary](docs/poly-actions/source-and-boundary.md)
 - [Algebraic poly-morphism prototype with examples](docs/poly-actions/algebraic-prototype.md)
 - [Source and evidence policy](docs/foundations/source-policy.md)
+- [Pending expert human source review](docs/foundations/human-source-review-checklist.md)
 - [Why the affine law is semidirect](docs/foundations/signed-affine-conventions.md)
 - [Quality and utility gates](docs/foundations/quality-and-utility-gates.md)
 - [Scientific contribution and novelty status](docs/foundations/scientific-contribution.md)
@@ -102,7 +116,12 @@ Install Lean through `elan`, then run:
 ```text
 lake update
 lake exe cache get
+python scripts/validate_release.py
+python scripts/check_lean_policy.py
+python scripts/check_axiom_surface.py
 lake build
+python scripts/check_axiom_surface.py --run
+lake env leanchecker IUT1 IUT1Audit
 ```
 
 The repository pins Lean `4.28.0` and Mathlib commit
@@ -134,6 +153,20 @@ and cold-replication gates remain separate, and the public Lean declarations
 have explicit axiom audits. Expert human review remains necessary for source
 interpretation and scientific usefulness; see [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
+## Human source-review status
+
+Source navigation, paraphrase drafting and anchor checking were assisted by AI
+agents. The recorded source-anchor PASS denotes a scoped, role-separated
+workflow review; it must not be described as expert human review. No existing
+PASS is revoked by this disclosure.
+
+Expert human rereading remains pending for six primary-source ranges: §I1,
+printed pp. 3–4; §0, pp. 33–34; §4, pp. 98–100; Definition 6.1(i), p. 155;
+Example 6.3(ii), pp. 161–162; and Definition 6.4, pp. 162–163. Until the
+[checklist](docs/foundations/human-source-review-checklist.md) is signed, the
+correct status is
+`AI_ASSISTED_SOURCE_REVIEW_COMPLETE; HUMAN_EXPERT_SOURCE_REVIEW_PENDING`.
+
 ## Publication status
 
 The owner has authorized public publication at
@@ -141,3 +174,9 @@ The owner has authorized public publication at
 licensed under Apache-2.0; documentation and educational data are licensed
 under CC BY 4.0. The scientific package gate and the publication-metadata gate
 are recorded separately, so the latter cannot widen any mathematical claim.
+
+`v0.1.0-rc1` is retained as an immutable historical prerelease. The corrective
+`v0.1.0-rc2` tree records the manifest genealogy, exact assurance denominators
+and pending human checklist. Its tag/commit/tree/manifest/CI binding is made by
+a detached release attestation outside the Git tree; the in-tree manifest does
+not self-attest.
