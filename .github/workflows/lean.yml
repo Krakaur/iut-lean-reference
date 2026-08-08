@@ -18,5 +18,4 @@ jobs:
         with:
           build: true
           test: false
-          nanoda: true
-          nanoda-allow-sorry: false
+          leanchecker: true
