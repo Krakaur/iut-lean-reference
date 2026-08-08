@@ -9,7 +9,7 @@ rules remove ambiguity about which license applies.
 ## Software license
 
 The Apache License 2.0 in [`LICENSE`](LICENSE) applies to `src/**`, `test/**`,
-`.github/workflows/**`, `scripts/**`, `lakefile.toml` and `lean-toolchain`.
+`.github/workflows/**`, `scripts/**`, `lakefile.toml`, `lake-manifest.json` and `lean-toolchain`.
 It also applies to the repository control files `.gitattributes` and `.gitignore`.
 
 ## Documentation and data license

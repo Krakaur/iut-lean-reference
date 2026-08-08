@@ -14,6 +14,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_CLAIMS = [f"T{i:02d}" for i in range(1, 12)]
 EXPECTED_PUBLIC_THEOREM_INSTANCES = 68
+EXPECTED_MATHLIB_REV = "8f9d9cff6bd728b17a24e163c9402775d9e6a365"
 EXPECTED_POLYACTION_ROLES = {
     "T01": "PREREQUISITE_ONLY",
     "T02": "PREREQUISITE_ONLY",
@@ -88,6 +89,7 @@ def load_jsonl(path: Path) -> list[dict[str, Any]]:
 def check_required_files() -> None:
     required = {
         ".gitattributes",
+        "lake-manifest.json",
         "README.md", "STATUS.md", "LICENSING.md", "lakefile.toml", "lean-toolchain",
         "CITATION.cff", "codemeta.json", "CONTRIBUTING.md", "LICENSE",
         "LICENSE-DOCUMENTATION.md", "NOTICE",
@@ -161,6 +163,44 @@ def check_authorship_metadata() -> None:
     notice = (ROOT / "NOTICE").read_text(encoding="utf-8")
     if expected_name not in notice or expected_orcid not in notice:
         fail("NOTICE lacks the release author name or ORCID")
+
+
+def check_lockfile() -> None:
+    lockfile = load_json(ROOT / "lake-manifest.json") or {}
+    if lockfile.get("version") != "1.1.0":
+        fail("lake-manifest.json must use manifest schema 1.1.0")
+    if lockfile.get("name") != "IUTLeanReference":
+        fail("lake-manifest.json has an unexpected root package name")
+    if lockfile.get("packagesDir") != ".lake/packages" or lockfile.get("lakeDir") != ".lake":
+        fail("lake-manifest.json has nonstandard Lake directories")
+
+    packages = lockfile.get("packages", [])
+    if not isinstance(packages, list):
+        fail("lake-manifest.json packages must be an array")
+        return
+    names = [package.get("name") for package in packages if isinstance(package, dict)]
+    if len(names) != len(packages) or len(names) != len(set(names)):
+        fail("lake-manifest.json contains malformed or duplicate packages")
+    if any(package.get("type") != "git" for package in packages):
+        fail("lake-manifest.json must not contain local path dependencies")
+
+    mathlib = [package for package in packages if package.get("name") == "mathlib"]
+    if len(mathlib) != 1:
+        fail("lake-manifest.json must contain exactly one mathlib package")
+        return
+    mathlib_package = mathlib[0]
+    expected = {
+        "url": "https://github.com/leanprover-community/mathlib4.git",
+        "rev": EXPECTED_MATHLIB_REV,
+        "inputRev": EXPECTED_MATHLIB_REV,
+        "inherited": False,
+    }
+    for field, value in expected.items():
+        if mathlib_package.get(field) != value:
+            fail(f"lake-manifest.json mathlib.{field} does not match the pinned release")
+    lakefile = (ROOT / "lakefile.toml").read_text(encoding="utf-8")
+    if f'rev = "{EXPECTED_MATHLIB_REV}"' not in lakefile:
+        fail("lakefile.toml does not match the validated Mathlib lock revision")
 
 
 def lean_declaration_exists(qualified: str, lean_text: str) -> bool:
@@ -449,6 +489,7 @@ def check_gate_separation() -> None:
 def main() -> int:
     check_required_files()
     check_authorship_metadata()
+    check_lockfile()
     check_machine_layer()
     check_export_hashes()
     check_release_manifest()

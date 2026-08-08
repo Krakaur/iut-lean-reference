@@ -45,8 +45,8 @@
     },
     {
       "path": "LICENSING.md",
-      "bytes": 1189,
-      "sha256": "e698105ca1771f66b58d3b52f5b3f87c4b5db4fcf355a29e5a3f48bb27d99dde"
+      "bytes": 1211,
+      "sha256": "a6bbab99d6fec7771c977cd51ce377f7dc26385198a5d8b04584b87f4539e494"
     },
     {
       "path": "NOTICE",
@@ -299,6 +299,11 @@
       "sha256": "6d2e7b8a60cd64eba57623eaaf896416b7d0e48825b33095f6258b6517d3cc0c"
     },
     {
+      "path": "lake-manifest.json",
+      "bytes": 3526,
+      "sha256": "2ccd7e2b6b1d8082d358ee9284598fa6270ab1e6b441b2e0cb02e30edc45fc47"
+    },
+    {
       "path": "lakefile.toml",
       "bytes": 297,
       "sha256": "9e585f42e3b45f1c1dd6a1500931ad02144ebbf0ed15daadf4b47da8d7f37f36"
@@ -315,8 +320,8 @@
     },
     {
       "path": "scripts/validate_release.py",
-      "bytes": 21211,
-      "sha256": "02c970069d5e215a9e3effbae6ce8680f93c2a60bd9ae99055a6186660e09bf5"
+      "bytes": 23170,
+      "sha256": "2dd8fb19745c62501337ae33779b5a5cf13f0d4d991b739cf0dbc0b1aa16f57b"
     },
     {
       "path": "src/IUT1.lean",
