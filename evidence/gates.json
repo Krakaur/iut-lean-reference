@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "release": "0.1.0-rc1",
+  "release": "0.1.0-rc2",
   "environment": {
     "lean": "4.28.0",
     "lean_toolchain": "leanprover/lean4:v4.28.0",
@@ -14,26 +14,37 @@
     {"targets":["APP01"],"semantic":"PASS","kernel":"PASS","fidelity":"PASS","cold_replication":"PASS","utility":"PASS_PACKAGE_REVIEW","P1":0,"P2":0,"P3":0,"promotion":false,"contract_sha256":"6b18ac863e7a00ac1633edd0dcec84df517bd81466abbeb5a7c5d9a4d11e847f","review_sha256":"42e72bd245afb366afe036ec049cce193fedc32e874d2988eef11aaee4e23f0e"},
     {"targets":["PA01","PA02","PA03","PA04","PA05","PA06"],"source_anchors":"PASS_INDEPENDENT_SOURCE_ANCHORS_R3","semantic":"PASS","kernel":"PASS","fidelity":"PASS","cold_replication":"PASS","utility":"PASS_PACKAGE_REVIEW","geometric":"NO_GO_GEOMETRIC_CURRENT_T01_T11","P1":0,"P2":0,"P3":0,"promotion":false,"contract_sha256":"749ec64476a228738b04c5585a7732fb81db2d7fc6bf2a0f52c0cbdcf08799a5","semantic_review_sha256":"2b9c353049b8d2aac5efe9f826811f6c2b923a15defa45a51a291a3ad5215c40","source_anchor_review_sha256":"183688c64d863a7afbf93d75f5780c456c23b8c9753b2c6fff15398d7e6bd237","final_review_sha256":"df4a6d6f768ef6b837f796c598cb9b0153ad2debe26a4a41a86e3b063d819e23"}
   ],
+  "campaign_interpretation": {
+    "status": "HISTORICAL_BYTE_SPECIFIC_RESULTS",
+    "unchanged_lean_and_test_bytes": true,
+    "package_level_rc2_pass_inferred": false,
+    "human_source_pass_inferred": false,
+    "canonical_incorporation_inferred": false
+  },
   "whole_package": {
-    "status": "PASS_FROZEN_LOCAL_CANDIDATE",
-    "utility": "PASS",
-    "scope_aligned_quality": "PASS_SCOPE_ALIGNED",
-    "reviewed_manifest_sha256": "a8e3a341b240d23c5f03b13f0b238785e9351139ab7fe53acf2e6b92700ad155",
-    "reviewed_validator_sha256": "40f136b0d8f925fa63e9722f6f7abeeb221a7ab670bc681ca431d28be2cedc7e",
-    "claims": 11,
-    "public_theorem_instances": 68,
-    "public_files": 70,
-    "P1": 0,
-    "P2": 0,
-    "P3": 0,
-    "initial_revise_review_sha256": "9986213c72a6bda3a5d54a769330345e8e41f8e7cd5cd8c14449d076290088d0",
-    "repair_delta_review_sha256": "6682b4a65e613a8b4593d813b328fc1c0a87a2ca92b5c602a4e280e63e9e90ec",
+    "status": "HISTORICAL_PASS_FROZEN_LOCAL_CANDIDATE",
+    "utility": "HISTORICAL_PASS",
+    "scope_aligned_quality": "HISTORICAL_PASS_SCOPE_ALIGNED",
+    "historical_reviewed_subject": {
+      "source_id": "REVIEW-WHOLE-PACKAGE-REPAIR-70",
+      "localizer": "manifest a8e3a341b240d23c5f03b13f0b238785e9351139ab7fe53acf2e6b92700ad155",
+      "manifest_sha256": "a8e3a341b240d23c5f03b13f0b238785e9351139ab7fe53acf2e6b92700ad155",
+      "manifest_entries": 70,
+      "validator_sha256": "40f136b0d8f925fa63e9722f6f7abeeb221a7ab670bc681ca431d28be2cedc7e",
+      "claims": 11,
+      "public_theorem_instances": 68,
+      "epistemic_status": "DELTA_PASS_FOR_REVIEWED_BYTES",
+      "initial_revise_review_sha256": "9986213c72a6bda3a5d54a769330345e8e41f8e7cd5cd8c14449d076290088d0",
+      "repair_delta_review_sha256": "6682b4a65e613a8b4593d813b328fc1c0a87a2ca92b5c602a4e280e63e9e90ec",
+      "discriminant": "A later manifest or validator hash cannot inherit this result."
+    },
+    "current_rc2_evaluation": "NOT_REEVALUATED_AS_A_SCIENTIFIC_PACKAGE",
     "geometric": "NO_GO_GEOMETRIC_CURRENT_T01_T11",
     "promotion": false,
-    "github_publication": "AUTHORIZED_FOR_PUBLICATION"
+    "github_publication": "CORRECTIVE_RELEASE_AUTHORIZED"
   },
   "publication_metadata": {
-    "status": "PASS_INDEPENDENT_REVIEW",
+    "status": "HISTORICAL_PASS_INDEPENDENT_REVIEW",
     "authorized": true,
     "repository": "https://github.com/Krakaur/iut-lean-reference",
     "software_license": "Apache-2.0",
@@ -42,12 +53,66 @@
     "orcid": "https://orcid.org/0000-0002-6465-034X",
     "gate_transfer_allowed": false,
     "mathematical_scope_unchanged": true,
-    "reviewed_manifest_sha256": "b38c7dd958cc04c13fa8ed1edd6b9a7f730dec5a075717b07bdde0c397b615c9",
-    "initial_review_sha256": "b385e49479ae2c6313cd7c6cea5512543ab011656c7eb6fa6e0f9c36f2572142",
-    "delta_review_sha256": "12e333c0edd4a473b7dba20940e1ebef6df6b5b7cdbdc10125dda071e00d7fcd",
-    "P1": 0,
-    "P2": 0,
-    "P3": 0
+    "historical_reviewed_subject": {
+      "source_id": "REVIEW-PUBLICATION-METADATA-DELTA-77",
+      "localizer": "manifest b38c7dd958cc04c13fa8ed1edd6b9a7f730dec5a075717b07bdde0c397b615c9",
+      "manifest_sha256": "b38c7dd958cc04c13fa8ed1edd6b9a7f730dec5a075717b07bdde0c397b615c9",
+      "manifest_entries": 77,
+      "epistemic_status": "GO_PUBLICATION_METADATA_ONLY",
+      "initial_review_sha256": "b385e49479ae2c6313cd7c6cea5512543ab011656c7eb6fa6e0f9c36f2572142",
+      "delta_review_sha256": "12e333c0edd4a473b7dba20940e1ebef6df6b5b7cdbdc10125dda071e00d7fcd",
+      "discriminant": "The reviewed publication metadata subject is historical, not the current release manifest."
+    }
+  },
+  "published_release_history": [
+    {
+      "source_id": "RC1-PUBLISHED-2635EC",
+      "localizer": "tag v0.1.0-rc1 at commit 2635ec15045a2880810d15984337bb7c07ef842f",
+      "version": "0.1.0-rc1",
+      "tree": "47da7da7e18e01d352e7237222d8779d4a405f9c",
+      "manifest_sha256": "47dbdef02930bc2e0d1ae8a9513ae597122f0d34ddd324a3d733464809409ca4",
+      "manifest_entries": 79,
+      "ci_runs": [31234677475, 31234817105],
+      "epistemic_status": "PUBLISHED_INDEPENDENT_CANDIDATE_OPERATIONALLY_VERIFIED",
+      "discriminant": "Both cited runs must resolve to the exact commit; no new semantic or fidelity review is inferred."
+    }
+  ],
+  "current_release_subject": {
+    "source_id": "RC2-CORRECTIVE-SUBJECT",
+    "localizer": "tag subject v0.1.0-rc2 descended from rc1 commit 2635ec15045a2880810d15984337bb7c07ef842f",
+    "version": "0.1.0-rc2",
+    "status": "RC2_PENDING_EXTERNAL_ATTESTATION",
+    "parent_commit": "2635ec15045a2880810d15984337bb7c07ef842f",
+    "parent_manifest_sha256": "47dbdef02930bc2e0d1ae8a9513ae597122f0d34ddd324a3d733464809409ca4",
+    "manifest_chain": "evidence/manifest-chain.json",
+    "detached_attestation_asset": "RC2_EXTERNAL_ATTESTATION.json",
+    "current_manifest_sha256_intentionally_omitted": true,
+    "scientific_gate_scope": "HISTORICAL_ONLY_NOT_REEVALUATED_AT_RC2",
+    "promotion": false,
+    "discriminant": "Only an external asset may bind the immutable rc2 tag, commit, tree, manifest and CI runs."
+  },
+  "human_source_review": {
+    "source_id": "SRC-OFFICIAL-7360E3ED27C235B5",
+    "localizer": "six ranges in evidence/human-source-review-checklist.json",
+    "workflow_review": "PASS_INDEPENDENT_SOURCE_ANCHORS_R3",
+    "reviewer_class": "AI_ASSISTED_PROCESS_REVIEW",
+    "epistemic_status": "PENDING_HUMAN_EXPERT_REVIEW",
+    "pending_ranges": 6,
+    "human_pass_inferred": false,
+    "discriminant": "All six rows require a named, competent, dated and signed human verdict."
+  },
+  "release_assurance": {
+    "source_id": "PUBLIC-RELEASE-AI-LEAN-ASSURANCE-RC2",
+    "localizer": "evidence/verification-policy.json and exact inventory scripts",
+    "epistemic_status": "REQUIRED_FOR_RC2_NOT_INHERITED",
+    "expected_modules": 16,
+    "expected_public_theorem_instances": 68,
+    "expected_axiom_queries": 92,
+    "compilation": "PENDING_EXACT_RC2_RUN",
+    "kernel": "PENDING_EXACT_RC2_RUN",
+    "axioms": "PENDING_EXACT_RC2_RUN",
+    "fidelity": "NOT_EVALUATED_IN_CI",
+    "discriminant": "Each layer reports independently; compilation or kernel success cannot set fidelity."
   },
   "t06_t08_cold_outputs": [
     {"module":"IUT1.SymmetryCore","bytes":133920,"sha256":"1bd024025040e283ab998239626201994780359b43702039adc55ed929c23d6e"},

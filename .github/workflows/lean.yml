@@ -11,12 +11,19 @@ jobs:
   build-and-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Validate public evidence package
         run: python scripts/validate_release.py
-      - uses: leanprover/lean-action@v1
+      - name: Enforce release-specific AI and Lean policy
+        run: python scripts/check_lean_policy.py
+      - name: Verify exact 16-module, 68-declaration and 92-query inventory
+        run: python scripts/check_axiom_surface.py
+      - id: compile
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9 # v1.5.0
         with:
           build: true
           test: false
+      - name: Replay and compare the complete axiom surface
+        run: python scripts/check_axiom_surface.py --run
       - name: Replay project declarations with the bundled Lean kernel checker
         run: lake env leanchecker IUT1 IUT1Audit

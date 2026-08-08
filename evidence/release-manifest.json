@@ -15,8 +15,8 @@
     },
     {
       "path": ".github/workflows/lean.yml",
-      "bytes": 503,
-      "sha256": "7441f1ef39ac92dec396de132abf070b318a4750df8bd9b8786c7d19f5d52e93"
+      "bytes": 964,
+      "sha256": "3cebf075938f224b4046b491cfed0934c1475f39efbc780a9e146780a71b2695"
     },
     {
       "path": ".gitignore",
@@ -26,7 +26,7 @@
     {
       "path": "CITATION.cff",
       "bytes": 902,
-      "sha256": "889fc79501321f4b5caeb7948b64ee7ce0cf9ff8d2b111e6c53f391d8d77ef37"
+      "sha256": "907b516cd1d63c2c0191f0f429507ae54edb0ca212dee519272c0ba4fedec81e"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -55,13 +55,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 7674,
-      "sha256": "417540e5ddcf07882580e9ad04cb2254b8cf9a6e5f29c9e2d9aedecf0cefec6a"
+      "bytes": 9754,
+      "sha256": "34bf490addbddfe4ab4fe6f57bf40324f8dc83f8e71aa8eb6263d78b31056b15"
     },
     {
       "path": "STATUS.md",
-      "bytes": 1855,
-      "sha256": "2cfdba398a4008dda06c702ff6155ffb3559b362a973b0eb38e85a72aea33e6c"
+      "bytes": 3382,
+      "sha256": "fb0b89bdc38649f5e652ea5cf1e3ee5d613bcc7864aae547d2fca63b30ab5ff7"
     },
     {
       "path": "ai/README.md",
@@ -116,7 +116,7 @@
     {
       "path": "codemeta.json",
       "bytes": 1387,
-      "sha256": "bc0de48a1f098a19d7161410f9f652a5331ebf27d53076fc6c91315de9659591"
+      "sha256": "6194df209f3ade12d2d25186630107a1dee53f7d088bb5b088bca377ca3a0ee4"
     },
     {
       "path": "docs/applications/convention-auditor.md",
@@ -159,6 +159,11 @@
       "sha256": "88fd546c1ea2611647583a44a5f2fc81ab50322ec6b157993b6d91b27b53e20e"
     },
     {
+      "path": "docs/foundations/human-source-review-checklist.md",
+      "bytes": 3109,
+      "sha256": "96cfb5f1ae1b0a9b7cb24adbe01421e7659b6122bb395ac960b2197066948d4c"
+    },
+    {
       "path": "docs/foundations/quality-and-utility-gates.md",
       "bytes": 1957,
       "sha256": "4b0b69dee3562d1a0819d5e9def6ceb177c779e0938723dbb97582459fcedfa5"
@@ -175,8 +180,8 @@
     },
     {
       "path": "docs/foundations/source-policy.md",
-      "bytes": 2064,
-      "sha256": "aa38475df5fc099411e02883d10fbbc814571f43b37ba6e7cffc872f833d329c"
+      "bytes": 2470,
+      "sha256": "666e99955b9049b3ec96eb440a9aef6e06e68215d881959a8a486f90571732bc"
     },
     {
       "path": "docs/guide-for-mathematicians.md",
@@ -200,8 +205,8 @@
     },
     {
       "path": "docs/roadmap/iut1-program.md",
-      "bytes": 3565,
-      "sha256": "d1edaaa613e2c1a6dc6018e85867b964a1409d9d03e5452a788a63bbc94791a1"
+      "bytes": 3669,
+      "sha256": "3b429cdae0c574f06c97a9a1f13db097a7532edaf9b4dd585bd2964bf385cc78"
     },
     {
       "path": "docs/roadmap/iut3-3-11-to-3-12.md",
@@ -270,8 +275,8 @@
     },
     {
       "path": "evidence/README.md",
-      "bytes": 2210,
-      "sha256": "1a3ce701989c5054fb5c6defa3b9c1d04538ba2d576158daf7030c5ba2ad9b98"
+      "bytes": 2776,
+      "sha256": "c28d15d53bca3146d6c3901bb12ac5324767cd08f0ee363b2a9fe065a6a20cdf"
     },
     {
       "path": "evidence/artifacts.json",
@@ -279,9 +284,29 @@
       "sha256": "645407760979c11757ed526e631efb7df18f2102ad31f5e401b907e2239ac769"
     },
     {
+      "path": "evidence/axiom-whitelist.json",
+      "bytes": 5904,
+      "sha256": "17cbe46b9c39b0876d4ee5bb1ece0b30265e5d3a9a0b610ed6cc8ac846e6f8f2"
+    },
+    {
       "path": "evidence/gates.json",
-      "bytes": 7424,
-      "sha256": "5aaf5cd4837f2ad2df43eb036583dc99ff9dfc2bb30b56eb9f3a12ab2d81cd5e"
+      "bytes": 11011,
+      "sha256": "f2c5de2fdd4d02c0167b5821b5a96cb5f234d685fa2be4a2552238261e61e2a2"
+    },
+    {
+      "path": "evidence/human-source-review-checklist.json",
+      "bytes": 4428,
+      "sha256": "41313cb8735317c345ac7e1ed3b63cb5e1f98961ca47862f1b56461555997f0c"
+    },
+    {
+      "path": "evidence/manifest-chain.json",
+      "bytes": 9161,
+      "sha256": "8b7d8545dcae7947d4e21a112295282751af2159c403bd0909e17e07d6c2c3c4"
+    },
+    {
+      "path": "evidence/module-declaration-inventory.json",
+      "bytes": 9626,
+      "sha256": "3d5906af73ba5ee1efa95d4922038d01036120cfd625be3fcb8ae863f08744ab"
     },
     {
       "path": "evidence/novelty.json",
@@ -297,6 +322,11 @@
       "path": "evidence/takkun-benchmark.json",
       "bytes": 5083,
       "sha256": "6d2e7b8a60cd64eba57623eaaf896416b7d0e48825b33095f6258b6517d3cc0c"
+    },
+    {
+      "path": "evidence/verification-policy.json",
+      "bytes": 2969,
+      "sha256": "4a563e1e6fdf9711fe4cdcc705bf500f43467c261fe7acef5371e3679e946859"
     },
     {
       "path": "lake-manifest.json",
@@ -319,9 +349,19 @@
       "sha256": "d1979ab4d98f4266267a81b4fe8919c33038ececf7e86e4d1d7a6227ea704b14"
     },
     {
+      "path": "scripts/check_axiom_surface.py",
+      "bytes": 15154,
+      "sha256": "1168a1cd5ba36b2f5d73b34a76b2b789b1940b56bc8ad46a529091a331fc5a30"
+    },
+    {
+      "path": "scripts/check_lean_policy.py",
+      "bytes": 6623,
+      "sha256": "e756223100d59df8b9c44e74c6d68e287f165519ff9169454ef04f8c81cb6bc6"
+    },
+    {
       "path": "scripts/validate_release.py",
-      "bytes": 23170,
-      "sha256": "2dd8fb19745c62501337ae33779b5a5cf13f0d4d991b739cf0dbc0b1aa16f57b"
+      "bytes": 31997,
+      "sha256": "8b327e92220a89f4f3a0ff814c1c863982f518f968545b299c054e6847639ca0"
     },
     {
       "path": "src/IUT1.lean",

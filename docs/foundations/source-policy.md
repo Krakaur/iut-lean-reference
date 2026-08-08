@@ -24,6 +24,15 @@ Printed-page numbers are recorded separately from physical PDF page numbers.
 The two T06--T08 source anchors were also visually checked in the authoritative
 PDF, rather than accepted from extracted text alone.
 
+## Human-review boundary
+
+The direct PDF inspections were AI-assisted, role-separated process reviews;
+they were not expert human review. Human rereading remains pending for the six
+ranges in the [public checklist](human-source-review-checklist.md). The current
+status is
+`AI_ASSISTED_SOURCE_REVIEW_COMPLETE; HUMAN_EXPERT_SOURCE_REVIEW_PENDING`.
+No source PASS is transferred into the human-review field.
+
 ## Evidence layers
 
 `SOURCE_EXPLICIT` concerns what the document says. `SEMANTIC_PASS` concerns

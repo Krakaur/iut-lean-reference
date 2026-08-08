@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "checklist_id": "IUT1-HUMAN-SOURCE-REVIEW-SIX-RANGES",
+  "source_id": "SRC-OFFICIAL-7360E3ED27C235B5",
+  "source_sha256": "7360e3ed27c235b5497a0743d3ed1646fbb97688547d16b7c784fc7f127f1f03",
+  "current_epistemic_status": "AI_ASSISTED_SOURCE_REVIEW_COMPLETE_HUMAN_EXPERT_SOURCE_REVIEW_PENDING",
+  "workflow_review": "PASS_INDEPENDENT_SOURCE_ANCHORS_R3",
+  "reviewer_class": "AI_ASSISTED_PROCESS_REVIEW",
+  "human_pass_inferred": false,
+  "closure_rule": "HUMAN_SOURCE_REVIEW_COMPLETE requires six explicit signed human verdicts; AI output must never populate human_reviewer.",
+  "items": [
+    {
+      "check_id": "HSR-01",
+      "localizer": "IUT I, section I1, printed pp. 3-4",
+      "epistemic_status": "PENDING_HUMAN_EXPERT_REVIEW",
+      "review_question": "Confirm the source parameters and groups, and whether poly-actions retain arithmetic or geometric provenance through automorphism subquotients.",
+      "discriminant": "Reject replacement by an ordinary action that has neither an automorphism subquotient nor source provenance.",
+      "human_reviewer": null,
+      "reviewer_competence": null,
+      "reviewed_at_utc": null,
+      "verdict": "PENDING",
+      "notes": null
+    },
+    {
+      "check_id": "HSR-02",
+      "localizer": "IUT I, section 0, printed pp. 33-34",
+      "epistemic_status": "PENDING_HUMAN_EXPERT_REVIEW",
+      "review_question": "Confirm poly-morphism as a collection or subset, poly-isomorphism, poly-automorphism, full variants and pairwise composition without multiplicity.",
+      "discriminant": "A two-arrow collection is not equivalent to either selected singleton.",
+      "human_reviewer": null,
+      "reviewer_competence": null,
+      "reviewed_at_utc": null,
+      "verdict": "PENDING",
+      "notes": null
+    },
+    {
+      "check_id": "HSR-03",
+      "localizer": "IUT I, section 4, printed pp. 98-100",
+      "epistemic_status": "PENDING_HUMAN_EXPERT_REVIEW",
+      "review_question": "Confirm multiplicative labels, capsules, collections beta composed with phi composed with alpha, automorphism quotients and action by poly-automorphisms.",
+      "discriminant": "This range may support the T03-T04 context but not the additive T05 model; label cardinality alone survives deletion of the categorical data.",
+      "human_reviewer": null,
+      "reviewer_competence": null,
+      "reviewed_at_utc": null,
+      "verdict": "PENDING",
+      "notes": null
+    },
+    {
+      "check_id": "HSR-04",
+      "localizer": "IUT I, Definition 6.1(i), printed p. 155",
+      "epistemic_status": "PENDING_HUMAN_EXPERT_REVIEW",
+      "review_question": "Confirm the distinction among the signed finite-field group, its torsor, chart orbits and transformations z maps to plus or minus z plus lambda.",
+      "discriminant": "Reject identification with an ordinary torsor under the entire affine group.",
+      "human_reviewer": null,
+      "reviewer_competence": null,
+      "reviewed_at_utc": null,
+      "verdict": "PENDING",
+      "notes": null
+    },
+    {
+      "check_id": "HSR-05",
+      "localizer": "IUT I, Example 6.3(ii), printed pp. 161-162",
+      "epistemic_status": "PENDING_HUMAN_EXPERT_REVIEW",
+      "review_question": "Confirm poly-automorphisms on indexed data, source and target poly-actions, and equivariance of the poly-morphism.",
+      "discriminant": "An ordinary affine action continues to exist after the indexed categorical data are erased and therefore cannot by itself establish this source construction.",
+      "human_reviewer": null,
+      "reviewer_competence": null,
+      "reviewed_at_utc": null,
+      "verdict": "PENDING",
+      "notes": null
+    },
+    {
+      "check_id": "HSR-06",
+      "localizer": "IUT I, Definition 6.4, printed pp. 162-163",
+      "epistemic_status": "PENDING_HUMAN_EXPERT_REVIEW",
+      "review_question": "Confirm the bridge as a poly-morphism, indexed capsule, quotient by sign, constituent morphisms and compatibility conditions.",
+      "discriminant": "Reject any claim that T01-T11 alone construct this geometric object.",
+      "human_reviewer": null,
+      "reviewer_competence": null,
+      "reviewed_at_utc": null,
+      "verdict": "PENDING",
+      "notes": null
+    }
+  ],
+  "gate_effect": {
+    "human_no_go_does_not_revoke_kernel_pass": true,
+    "human_no_go_blocks_dependent_source_fidelity_or_promotion": true,
+    "promotion": false,
+    "gate_transfer_allowed": false
+  }
+}

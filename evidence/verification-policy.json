@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "PUBLIC-RELEASE-AI-LEAN-ASSURANCE-RC2",
+  "purpose": "Release-specific assurance for the public repository, which is excluded from the common Math harness by its support_runs path.",
+  "common_policy": {
+    "source_id": "MATH-AI-LEAN-ASSURANCE-POLICY-1.0.0",
+    "localizer": "AI_LEAN_ASSURANCE_POLICY.json and files/Test-AILeanHarnessPolicy.ps1 under the Math root",
+    "policy_json_sha256": "19cc20f9bdc9fca63caad7c73d2fe72245a0e7c058e35bbf90d20dd2365d13cb",
+    "policy_md_sha256": "dd385a025e33f3d1a69600c125603ca788b76c20974a88e4227f5f6044fefe8e",
+    "harness_sha256": "f2b159d352001f69e120aae4af290f5df1deee249c206ab72a611a000c2b6624",
+    "epistemic_status": "NORMATIVE_LOCAL_POLICY",
+    "coverage_of_this_repository": "NONE",
+    "discriminant": "The common harness ignores every path segment named support_runs; its PASS therefore cannot be cited for this release."
+  },
+  "scan": {
+    "roots": ["src", "test"],
+    "expected_lean_files": 16,
+    "allowlist": [],
+    "ignored_segments": [".git", ".lake", "__pycache__"],
+    "comments_and_strings_removed_before_matching": true
+  },
+  "lean_rules": [
+    {"id":"LEAN_PLACEHOLDER_SORRY","severity":"P1","regex":"\\bsorry\\b"},
+    {"id":"LEAN_PLACEHOLDER_ADMIT","severity":"P1","regex":"\\badmit\\b"},
+    {"id":"LEAN_CUSTOM_AXIOM","severity":"P1","regex":"(?m)^\\s*axiom\\s+"},
+    {"id":"LEAN_SKIP_KERNEL","severity":"P1","regex":"debug\\.skipKernelTC|addDeclWithoutChecking"},
+    {"id":"LEAN_META_DECLARATION","severity":"P2","regex":"\\brun_meta\\b|\\baddDecl(?:Core)?\\b"},
+    {"id":"LEAN_COMPILER_TRUST","severity":"P2","regex":"\\bnative_decide\\b|decide\\s*\\+native|Lean\\.(?:ofReduceBool|trustCompiler)"},
+    {"id":"LEAN_UNSAFE","severity":"P2","regex":"(?m)^\\s*unsafe\\s+"},
+    {"id":"LEAN_AUTO_IMPLICIT_TRUE","severity":"P3","regex":"set_option\\s+autoImplicit\\s+true"}
+  ],
+  "remote_action_pins": {
+    "actions/checkout": "11d5960a326750d5838078e36cf38b85af677262",
+    "leanprover/lean-action": "38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9",
+    "all_remote_uses_must_end_in_40_hex": true
+  },
+  "exact_denominators": {
+    "local_modules": 16,
+    "public_theorem_named_instances": 68,
+    "axiom_queries": 92
+  },
+  "gate_separation": {
+    "inventory": "independent result",
+    "compilation": "independent result",
+    "kernel": "independent result",
+    "axioms": "independent result",
+    "fidelity": "NOT_EVALUATED_IN_CI",
+    "gate_transfer_allowed": false
+  },
+  "falsifiers": [
+    "An extra or missing Lean module fails exact inventory.",
+    "A replacement declaration that preserves count 68 fails name, kind or path inventory.",
+    "A missing, extra or renamed axiom query fails the exact 92-query set.",
+    "Any added or removed axiom fails per-declaration equality and requires review.",
+    "Any unpinned remote GitHub Action fails static policy.",
+    "Any open P1, P2 or P3 lexical finding fails the campaign."
+  ]
+}
