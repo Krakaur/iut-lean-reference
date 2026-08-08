@@ -305,8 +305,8 @@
     },
     {
       "path": "lakefile.toml",
-      "bytes": 297,
-      "sha256": "9e585f42e3b45f1c1dd6a1500931ad02144ebbf0ed15daadf4b47da8d7f37f36"
+      "bytes": 604,
+      "sha256": "d6b5f0ebe41bf308a11d8c5ddb689ddf388b5bde79232f2a4c0b3681c4e08138"
     },
     {
       "path": "lean-toolchain",

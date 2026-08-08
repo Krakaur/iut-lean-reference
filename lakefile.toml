@@ -13,3 +13,13 @@ srcDir = "src"
 [[lean_lib]]
 name = "IUT1Audit"
 srcDir = "test"
+globs = [
+  "IUT1Audit",
+  "IUT1.SymmetryCoreAxiomAudit",
+  "IUT1.SignOrbitBridgeAxiomAudit",
+  "IUT1.SignedAffineCoreAxiomAudit",
+  "IUT1.SignedAffineDihedralAxiomAudit",
+  "IUT1.Applications.ConventionAuditAxiomAudit",
+  "IUT1.Applications.PolyMorphismPrototypeAxiomAudit",
+  "IUT1.TutorialAxiomAudit",
+]
